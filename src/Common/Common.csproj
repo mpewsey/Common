@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<AssemblyName>MPewsey.Common</AssemblyName>
+	<AssemblyTitle>MPewsey.Common</AssemblyTitle>
+	<RootNamespace>MPewsey.Common</RootNamespace>
+	<PackageId>MPewsey.Common</PackageId>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Matt Pewsey</Authors>
+    <Company>Matt Pewsey</Company>
+    <Copyright>Copyright © 2023</Copyright>
+    <Description>A library of common classes.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mpewsey/Common</RepositoryUrl>
+    <PackageTags>library</PackageTags>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+	<VersionPrefix>0.0.1</VersionPrefix>
+	<Configurations>Debug;Release</Configurations>
+	<PackageProjectUrl>https://github.com/mpewsey/Common</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Serialization\" />
+  </ItemGroup>
+
+</Project>
