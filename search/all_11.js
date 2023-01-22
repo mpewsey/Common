@@ -11,6 +11,6 @@ var searchData=
   ['setseed_8',['SetSeed',['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a1b4f9cdb3ac9e6cf8ed59b9129d036be',1,'MPewsey::Common::Random::RandomSeed']]],
   ['shuffle_3c_20t_20_3e_9',['Shuffle&lt; T &gt;',['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#ae82254a244b191cfd3c642aa1f6cd549',1,'MPewsey::Common::Random::RandomSeed']]],
   ['shuffled_3c_20t_20_3e_10',['Shuffled&lt; T &gt;',['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a52a4e402002d74c5fb0464140c5ecf95',1,'MPewsey::Common::Random::RandomSeed']]],
-  ['sign_11',['Sign',['../struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html#aec310af5a61e191dde2e41b667a937d7',1,'MPewsey::Common::Mathematics::Vector2DInt']]],
+  ['sign_11',['Sign',['../struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html#aec310af5a61e191dde2e41b667a937d7',1,'MPewsey.Common.Mathematics.Vector2DInt.Sign()'],['../struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector3_d_int.html#ae898258bba404dbfd445e980356cd6c9',1,'MPewsey.Common.Mathematics.Vector3DInt.Sign()']]],
   ['softmax_12',['Softmax',['../class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#aab9e2f8b3c3f90ecc058aabf246ec230',1,'MPewsey.Common.Mathematics.Maths.Softmax(IList&lt; double &gt; values)'],['../class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#a4d280fab2560684bae2084abf5c11112',1,'MPewsey.Common.Mathematics.Maths.Softmax(IList&lt; float &gt; values)']]]
 ];

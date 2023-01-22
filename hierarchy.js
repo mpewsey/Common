@@ -13,7 +13,8 @@ var hierarchy =
       [ "MPewsey.Common.Collections.DataContractHashSet< T >", "class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html", null ]
     ] ],
     [ "IComparable", null, [
-      [ "MPewsey.Common.Mathematics.Vector2DInt", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html", null ]
+      [ "MPewsey.Common.Mathematics.Vector2DInt", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html", null ],
+      [ "MPewsey.Common.Mathematics.Vector3DInt", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector3_d_int.html", null ]
     ] ],
     [ "MPewsey.Common.Collections.IDataContractValueDictionaryValue< T >", "interface_m_pewsey_1_1_common_1_1_collections_1_1_i_data_contract_value_dictionary_value.html", null ],
     [ "IDictionary", null, [

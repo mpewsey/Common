@@ -1,6 +1,7 @@
 var struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int =
 [
     [ "Vector2DInt", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html#a77a0aba37dac450d4a0d8bc4a01d759f", null ],
+    [ "Dot", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html#a46ea79b88080f550eea7e11d109cf2cd", null ],
     [ "Max", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html#a9076738a0cc40ab5e87bbb51af642fee", null ],
     [ "Min", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html#a1b5436ff2946b90c21b9c55849a9e9ed", null ],
     [ "Sign", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html#aec310af5a61e191dde2e41b667a937d7", null ],
