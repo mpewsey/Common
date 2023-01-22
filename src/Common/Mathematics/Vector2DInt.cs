@@ -131,5 +131,15 @@ namespace MPewsey.Common.Mathematics
         {
             return new Vector2DInt(Math.Sign(vector.X), Math.Sign(vector.Y));
         }
+
+        /// <summary>
+        /// Returns the dot product of the two vectors.
+        /// </summary>
+        /// <param name="value1">The first vector.</param>
+        /// <param name="value2">The second vector.</param>
+        public static int Dot(Vector2DInt value1, Vector2DInt value2)
+        {
+            return value1.X * value2.X + value1.Y * value2.Y;
+        }
     }
 }

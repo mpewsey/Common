@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Random;
 using MPewsey.Common.Serialization;
 using System;
+using System.Collections.Generic;
 
 namespace MPewsey.Common.Mathematics.Tests
 {
@@ -108,6 +110,61 @@ namespace MPewsey.Common.Mathematics.Tests
         {
             var v = new Vector3DInt(1, 2, 3);
             Assert.AreEqual(new Vector2DInt(1, 2), (Vector2DInt)v);
+        }
+
+        [TestMethod]
+        public void TestSign()
+        {
+            Assert.AreEqual(new Vector3DInt(1, -1, 1), Vector3DInt.Sign(new Vector3DInt(100, -200, 300)));
+            Assert.AreEqual(new Vector3DInt(-1, 1, -1), Vector3DInt.Sign(new Vector3DInt(-100, 200, -300)));
+            Assert.AreEqual(Vector3DInt.Zero, Vector3DInt.Sign(Vector3DInt.Zero));
+        }
+
+        [TestMethod]
+        public void TestMax()
+        {
+            var v1 = new Vector3DInt(200, -100, 30);
+            var v2 = new Vector3DInt(-40, 10, 20);
+            Assert.AreEqual(new Vector3DInt(200, 10, 30), Vector3DInt.Max(v1, v2));
+        }
+
+        [TestMethod]
+        public void TestMin()
+        {
+            var v1 = new Vector3DInt(200, -100, 30);
+            var v2 = new Vector3DInt(-40, 10, 20);
+            Assert.AreEqual(new Vector3DInt(-40, -100, 20), Vector3DInt.Min(v1, v2));
+        }
+
+        [TestMethod]
+        public void TestDot()
+        {
+            var v1 = new Vector3DInt(10, 2, 50);
+            var v2 = new Vector3DInt(3, 40, 7);
+            Assert.AreEqual(460, Vector3DInt.Dot(v1, v2));
+        }
+
+        [TestMethod]
+        public void TestCompareTo()
+        {
+            var random = new RandomSeed(12345);
+            var count = 100;
+            var expected = new List<Vector3DInt>();
+
+            for (int i = 0; i < count; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    for (int k = 0; k < count; k++)
+                    {
+                        expected.Add(new Vector3DInt(i, j, k));
+                    }
+                }
+            }
+
+            var result = random.Shuffled(expected);
+            result.Sort();
+            CollectionAssert.AreEqual(expected, result);
         }
     }
 }
