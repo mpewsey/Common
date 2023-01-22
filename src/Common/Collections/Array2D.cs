@@ -363,9 +363,9 @@ namespace MPewsey.Common.Collections
         }
 
         /// <summary>
-        /// Returns a new array rotated counter-clockwise 270 degrees.
+        /// Returns a new array rotated clockwise 90 degrees.
         /// </summary>
-        public Array2D<T> Rotated270()
+        public Array2D<T> Rotated90()
         {
             var rotation = new Array2D<T>(Columns, Rows);
 
@@ -402,9 +402,9 @@ namespace MPewsey.Common.Collections
         }
 
         /// <summary>
-        /// Returns a new array rotated counter-clockwise 90 degrees.
+        /// Returns a new array rotated clockwise 270 degrees.
         /// </summary>
-        public Array2D<T> Rotated90()
+        public Array2D<T> Rotated270()
         {
             var rotation = new Array2D<T>(Columns, Rows);
 
