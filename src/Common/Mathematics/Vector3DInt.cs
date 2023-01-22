@@ -7,7 +7,7 @@ namespace MPewsey.Common.Mathematics
     /// A 3D vector with integer values.
     /// </summary>
     [DataContract(Namespace = Constants.DataContractNamespace)]
-    public struct Vector3DInt : IEquatable<Vector3DInt>
+    public struct Vector3DInt : IEquatable<Vector3DInt>, IComparable<Vector3DInt>
     {
         /// <summary>
         /// Returns a zero vector.
@@ -69,6 +69,21 @@ namespace MPewsey.Common.Mathematics
                    Z == other.Z;
         }
 
+        public int CompareTo(Vector3DInt other)
+        {
+            var comparison = X.CompareTo(other.X);
+
+            if (comparison != 0)
+                return comparison;
+
+            comparison = Y.CompareTo(other.Y);
+
+            if (comparison != 0)
+                return comparison;
+
+            return Z.CompareTo(other.Z);
+        }
+
         public override int GetHashCode()
         {
             int hashCode = -307843816;
@@ -101,6 +116,45 @@ namespace MPewsey.Common.Mathematics
         public static Vector3DInt operator -(Vector3DInt vector)
         {
             return new Vector3DInt(-vector.X, -vector.Y, -vector.Z);
+        }
+
+        /// <summary>
+        /// Returns the maximum values of the two vectors.
+        /// </summary>
+        /// <param name="value1">The first vector.</param>
+        /// <param name="value2">The second vector.</param>
+        public static Vector3DInt Max(Vector3DInt value1, Vector3DInt value2)
+        {
+            return new Vector3DInt(Math.Max(value1.X, value2.X), Math.Max(value1.Y, value2.Y), Math.Max(value1.Z, value2.Z));
+        }
+
+        /// <summary>
+        /// Returns the minimum values of the two vectors.
+        /// </summary>
+        /// <param name="value1">The first vector.</param>
+        /// <param name="value2">The second vector.</param>
+        public static Vector3DInt Min(Vector3DInt value1, Vector3DInt value2)
+        {
+            return new Vector3DInt(Math.Min(value1.X, value2.X), Math.Min(value1.Y, value2.Y), Math.Min(value1.Z, value2.Z));
+        }
+
+        /// <summary>
+        /// Returns the sign of the vector.
+        /// </summary>
+        /// <param name="vector">The vector.</param>
+        public static Vector3DInt Sign(Vector3DInt vector)
+        {
+            return new Vector3DInt(Math.Sign(vector.X), Math.Sign(vector.Y), Math.Sign(vector.Z));
+        }
+
+        /// <summary>
+        /// Returns the dot product of the two vectors.
+        /// </summary>
+        /// <param name="value1">The first vector.</param>
+        /// <param name="value2">The second vector.</param>
+        public static int Dot(Vector3DInt value1, Vector3DInt value2)
+        {
+            return value1.X * value2.X + value1.Y * value2.Y + value1.Z * value2.Z;
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MPewsey.Common.Random;
 using MPewsey.Common.Serialization;
+using System.Collections.Generic;
 
 namespace MPewsey.Common.Mathematics.Tests
 {
@@ -74,20 +76,6 @@ namespace MPewsey.Common.Mathematics.Tests
         }
 
         [TestMethod]
-        public void TestCompareTo()
-        {
-            var v1 = Vector2DInt.Zero;
-            var v2 = new Vector2DInt(-1, 0);
-            var v3 = new Vector2DInt(0, -1);
-
-            Assert.AreEqual(0, v1.CompareTo(v1));
-            Assert.AreEqual(-1, v2.CompareTo(v1));
-            Assert.AreEqual(1, v1.CompareTo(v2));
-            Assert.AreEqual(-1, v3.CompareTo(v1));
-            Assert.AreEqual(1, v1.CompareTo(v3));
-        }
-
-        [TestMethod]
         public void TestSign()
         {
             Assert.AreEqual(new Vector2DInt(1, -1), Vector2DInt.Sign(new Vector2DInt(100, -200)));
@@ -135,6 +123,34 @@ namespace MPewsey.Common.Mathematics.Tests
         {
             var v = new Vector2DInt(1, 2);
             Assert.AreEqual(new Vector3DInt(1, 2, 0), (Vector3DInt)v);
+        }
+
+        [TestMethod]
+        public void TestDot()
+        {
+            var v1 = new Vector2DInt(10, 2);
+            var v2 = new Vector2DInt(3, 40);
+            Assert.AreEqual(110, Vector2DInt.Dot(v1, v2));
+        }
+
+        [TestMethod]
+        public void TestCompareTo()
+        {
+            var random = new RandomSeed(12345);
+            var count = 100;
+            var expected = new List<Vector2DInt>();
+
+            for (int i = 0; i < count; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    expected.Add(new Vector2DInt(i, j));
+                }
+            }
+
+            var result = random.Shuffled(expected);
+            result.Sort();
+            CollectionAssert.AreEqual(expected, result);
         }
     }
 }
