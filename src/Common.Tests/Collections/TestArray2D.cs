@@ -127,7 +127,7 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
-        public void TestRotate270()
+        public void TestRotate90()
         {
             Array2D<int> array = new int[,]
             {
@@ -144,7 +144,7 @@ namespace MPewsey.Common.Collections.Tests
                 { 12, 8, 4 },
             };
 
-            var result = array.Rotated270();
+            var result = array.Rotated90();
             Console.WriteLine("Original");
             Console.WriteLine(array.ToArrayString());
             Console.WriteLine("\nExpected:");
@@ -152,7 +152,7 @@ namespace MPewsey.Common.Collections.Tests
             Console.WriteLine("\nResult:");
             Console.WriteLine(result.ToArrayString());
             CollectionAssert.AreEqual(expected.Array, result.Array);
-            CollectionAssert.AreEqual(array.Array, array.Rotated270().Rotated270().Rotated270().Rotated270().Array);
+            CollectionAssert.AreEqual(array.Array, array.Rotated90().Rotated90().Rotated90().Rotated90().Array);
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
-        public void TestRotate90()
+        public void TestRotate270()
         {
             Array2D<int> array = new int[,]
             {
@@ -201,7 +201,7 @@ namespace MPewsey.Common.Collections.Tests
                 { 1, 5, 9 },
             };
 
-            var result = array.Rotated90();
+            var result = array.Rotated270();
             Console.WriteLine("Original");
             Console.WriteLine(array.ToArrayString());
             Console.WriteLine("\nExpected:");
@@ -209,7 +209,7 @@ namespace MPewsey.Common.Collections.Tests
             Console.WriteLine("\nResult:");
             Console.WriteLine(result.ToArrayString());
             CollectionAssert.AreEqual(expected.Array, result.Array);
-            CollectionAssert.AreEqual(array.Array, array.Rotated90().Rotated90().Rotated90().Rotated90().Array);
+            CollectionAssert.AreEqual(array.Array, array.Rotated270().Rotated270().Rotated270().Rotated270().Array);
         }
 
         [TestMethod]
