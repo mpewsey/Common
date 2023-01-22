@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['next_0',['Next',['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#af1c29c13971f380c17211f2c7095a27d',1,'MPewsey.Common.Random.RandomSeed.Next()'],['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#aeaa13ca1f4af4980bae09f80deaa2512',1,'MPewsey.Common.Random.RandomSeed.Next(int maxValue)'],['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a846eda5cdb2d3544b3f76811f9d5b778',1,'MPewsey.Common.Random.RandomSeed.Next(int minValue, int maxValue)']]],
+  ['nextdouble_1',['NextDouble',['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#af4e600b154fa3f4a320e84a4477c2d1c',1,'MPewsey.Common.Random.RandomSeed.NextDouble()'],['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a770233688e67e45630e838cdeee91de9',1,'MPewsey.Common.Random.RandomSeed.NextDouble(double maxValue)'],['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#abe875812e0a8177a6555519be6b1f821',1,'MPewsey.Common.Random.RandomSeed.NextDouble(double minValue, double maxValue)']]],
+  ['nextlargedouble_2',['NextLargeDouble',['../class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#aacfb4d6f0dfa2a0784c1e20886358b5b',1,'MPewsey::Common::Random::RandomSeed']]]
+];
