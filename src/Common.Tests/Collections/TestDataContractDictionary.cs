@@ -309,7 +309,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestTryGetValue()
         {
-            var dict = new Dictionary<int, int>
+            var dict = new DataContractDictionary<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },

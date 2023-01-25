@@ -398,6 +398,8 @@ namespace MPewsey.Common.Collections.Tests
             {
                 Assert.AreEqual(i + 1, array[vectors[i]]);
             }
+
+            Assert.AreEqual(2, array[3, 4]);
         }
 
         [TestMethod]
