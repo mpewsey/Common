@@ -66,6 +66,15 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestGetEnumerator()
+        {
+            var set = new DataContractHashSet<int> { 1 };
+            var enumerator = ((IEnumerable<int>)set).GetEnumerator();
+            Assert.IsTrue(enumerator.MoveNext());
+            Assert.AreEqual(1, enumerator.Current);
+        }
+
+        [TestMethod]
         public void TestAdd()
         {
             var set = new DataContractHashSet<int>();

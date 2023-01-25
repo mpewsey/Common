@@ -172,5 +172,15 @@ namespace MPewsey.Common.Collections.Tests
             Assert.AreEqual(array.Columns, copy.Columns);
             CollectionAssert.AreEqual(array.Array, copy.Array);
         }
+
+        [TestMethod]
+        public void TestVectorIndexer()
+        {
+            var array = new BitArray2D(10, 10);
+            var index = new Vector2DInt(1, 2);
+            array[index] = true;
+            Assert.IsTrue(array[index]);
+            Assert.AreEqual(array[1, 2], array[index]);
+        }
     }
 }
