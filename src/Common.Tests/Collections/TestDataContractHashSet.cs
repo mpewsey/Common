@@ -19,6 +19,16 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestSaveAndLoadEmpty()
+        {
+            var path = "EmptyDataContractHashSet.xml";
+            var set = new DataContractHashSet<int>();
+            XmlSerialization.SaveXml(path, set);
+            var copy = XmlSerialization.LoadXml<DataContractHashSet<int>>(path);
+            CollectionAssert.AreEquivalent(set.ToList(), copy.ToList());
+        }
+
+        [TestMethod]
         public void TestDictionaryCast()
         {
             DataContractHashSet<int> set = new HashSet<int>();

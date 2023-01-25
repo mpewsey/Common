@@ -2,6 +2,7 @@
 using MPewsey.Common.Serialization;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MPewsey.Common.Random.Tests
 {
@@ -38,7 +39,7 @@ namespace MPewsey.Common.Random.Tests
             var seed = new RandomSeed();
             var values = new float[] { 0, 1, 0 };
             Assert.AreEqual(1, seed.DrawWeightedIndex(values));
-            Assert.AreEqual(-1, seed.DrawWeightedIndex(Array.Empty<double>()));
+            Assert.AreEqual(-1, seed.DrawWeightedIndex(Array.Empty<float>()));
         }
 
         [TestMethod]
@@ -286,6 +287,31 @@ namespace MPewsey.Common.Random.Tests
             {
                 Assert.AreEqual(seed.Next(), copy.Next());
             }
+        }
+
+        [TestMethod]
+        public void TestChanceSatisfied()
+        {
+            var seed = new RandomSeed(12345);
+            var results = new bool[1000];
+
+            for (int i = 0; i < 1000; i++)
+            {
+                Assert.IsFalse(seed.ChanceSatisfied(0.0f));
+            }
+
+            for (int i = 0; i < 1000; i++)
+            {
+                Assert.IsTrue(seed.ChanceSatisfied(1.0f));
+            }
+
+            for (int i = 0; i < results.Length; i++)
+            {
+                results[i] = seed.ChanceSatisfied(0.5f);
+            }
+
+            Assert.IsTrue(results.Contains(true));
+            Assert.IsTrue(results.Contains(false));
         }
     }
 }

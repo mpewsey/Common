@@ -377,5 +377,35 @@ namespace MPewsey.Common.Collections.Tests
             var result = array.FindIndexes(x => x == 1);
             CollectionAssert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void TestVectorIndexer()
+        {
+            var array = new Array2D<int>(10, 10);
+            var vectors = new Vector2DInt[]
+            {
+                new Vector2DInt(1, 1),
+                new Vector2DInt(3, 4),
+                new Vector2DInt(4, 3),
+            };
+
+            for (int i = 0; i < vectors.Length; i++)
+            {
+                array[vectors[i]] = i + 1;
+            }
+
+            for (int i = 0; i < vectors.Length; i++)
+            {
+                Assert.AreEqual(i + 1, array[vectors[i]]);
+            }
+        }
+
+        [TestMethod]
+        public void TestValuesAreNotEqual()
+        {
+            var array1 = new Array2D<int>(1, 2);
+            var array2 = new Array2D<int>(2, 1);
+            Assert.IsFalse(array1.ValuesAreEqual(array2));
+        }
     }
 }
