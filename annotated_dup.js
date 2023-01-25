@@ -13,10 +13,18 @@ var annotated_dup =
           [ "IDataContractValueDictionaryValue", "interface_m_pewsey_1_1_common_1_1_collections_1_1_i_data_contract_value_dictionary_value.html", "interface_m_pewsey_1_1_common_1_1_collections_1_1_i_data_contract_value_dictionary_value" ],
           [ "KeyValue", "struct_m_pewsey_1_1_common_1_1_collections_1_1_key_value.html", "struct_m_pewsey_1_1_common_1_1_collections_1_1_key_value" ]
         ] ],
+        [ "Logging", "namespace_m_pewsey_1_1_common_1_1_logging.html", [
+          [ "Logger", "class_m_pewsey_1_1_common_1_1_logging_1_1_logger.html", "class_m_pewsey_1_1_common_1_1_logging_1_1_logger" ]
+        ] ],
         [ "Mathematics", "namespace_m_pewsey_1_1_common_1_1_mathematics.html", [
           [ "Maths", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths" ],
           [ "Vector2DInt", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int" ],
           [ "Vector3DInt", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector3_d_int.html", "struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector3_d_int" ]
+        ] ],
+        [ "Pipelines", "namespace_m_pewsey_1_1_common_1_1_pipelines.html", [
+          [ "IPipelineStep", "interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step.html", "interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step" ],
+          [ "Pipeline", "class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline.html", "class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline" ],
+          [ "PipelineResults", "class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline_results.html", "class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline_results" ]
         ] ],
         [ "Random", "namespace_m_pewsey_1_1_common_1_1_random.html", [
           [ "RandomSeed", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed" ]

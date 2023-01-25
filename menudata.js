@@ -92,6 +92,7 @@ var menudata={children:[
 {text:"v",url:"functions_prop.html#index_v"},
 {text:"x",url:"functions_prop.html#index_x"},
 {text:"y",url:"functions_prop.html#index_y"},
-{text:"z",url:"functions_prop.html#index_z"}]}]}]},
+{text:"z",url:"functions_prop.html#index_z"}]},
+{text:"Events",url:"functions_evnt.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"}]}]}
