@@ -27,6 +27,17 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestSaveAndLoadEmptyDictionary()
+        {
+            var path = "EmptyDataContractDictionary.xml";
+            var dict = new DataContractDictionary<int, int>();
+            XmlSerialization.SaveXml(path, dict);
+            var copy = XmlSerialization.LoadXml<DataContractDictionary<int, int>>(path);
+            CollectionAssert.AreEquivalent(dict.Keys.ToList(), copy.Keys.ToList());
+            CollectionAssert.AreEquivalent(dict.Values.ToList(), copy.Values.ToList());
+        }
+
+        [TestMethod]
         public void TestInitializer()
         {
             var dict = new DataContractDictionary<int, int>(10);
@@ -266,6 +277,61 @@ namespace MPewsey.Common.Collections.Tests
             {
                 Assert.IsNotNull(value);
             }
+        }
+
+        [TestMethod]
+        public void TestCopyInitializer()
+        {
+            var dict = new DataContractDictionary<int, int>
+            {
+                { 1, 2 },
+                { 3, 4 },
+            };
+
+            var copy = new DataContractDictionary<int, int>(dict);
+            CollectionAssert.AreEquivalent(dict.Keys, copy.Keys);
+            CollectionAssert.AreEquivalent(dict.Values, copy.Values);
+        }
+
+        [TestMethod]
+        public void TestDictionaryCast()
+        {
+            var dict = new Dictionary<int, int>
+            {
+                { 1, 2 },
+                { 3, 4 },
+            };
+
+            var cast = (DataContractDictionary<int, int>)dict;
+            Assert.AreEqual(dict, cast.Dictionary);
+        }
+
+        [TestMethod]
+        public void TestTryGetValue()
+        {
+            var dict = new Dictionary<int, int>
+            {
+                { 1, 2 },
+                { 3, 4 },
+            };
+
+            Assert.IsTrue(dict.TryGetValue(1, out int value));
+            Assert.AreEqual(2, value);
+        }
+
+        [TestMethod]
+        public void TestCopyTo()
+        {
+            var dict = new DataContractDictionary<int, int>
+            {
+                { 1, 2 },
+                { 3, 4 },
+            };
+
+            var expected = dict.ToArray();
+            var result = new KeyValuePair<int, int>[dict.Count];
+            dict.CopyTo(result, 0);
+            CollectionAssert.AreEquivalent(expected, result);
         }
     }
 }

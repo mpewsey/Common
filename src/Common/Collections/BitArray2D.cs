@@ -110,7 +110,8 @@ namespace MPewsey.Common.Collections
             {
                 Rows = other.Rows;
                 Columns = other.Columns;
-                Array = new int[ChunkCount(other.Rows, other.Columns)];
+                Array = new int[other.Array.Length];
+                other.Array.CopyTo(Array, 0);
             }
         }
 

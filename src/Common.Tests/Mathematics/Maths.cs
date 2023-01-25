@@ -56,6 +56,7 @@ namespace MPewsey.Common.Mathematics.Tests
             Console.WriteLine("Result:");
             Console.WriteLine(string.Join(", ", result));
             CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(Array.Empty<float>(), Maths.Softmax(Array.Empty<float>()));
         }
 
         [TestMethod]
@@ -75,6 +76,7 @@ namespace MPewsey.Common.Mathematics.Tests
             Console.WriteLine("Result:");
             Console.WriteLine(string.Join(", ", result));
             CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(Array.Empty<double>(), Maths.Softmax(Array.Empty<double>()));
         }
     }
 }

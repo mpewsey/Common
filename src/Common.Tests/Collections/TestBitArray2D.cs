@@ -158,5 +158,19 @@ namespace MPewsey.Common.Collections.Tests
         {
             Assert.ThrowsException<IndexOutOfRangeException>(() => new BitArray2D()[-1, -1] = true);
         }
+
+        [TestMethod]
+        public void TestCopy()
+        {
+            var array = new BitArray2D(10, 20);
+            array[1, 1] = true;
+            array[2, 2] = true;
+            array[9, 15] = true;
+
+            var copy = array.Copy();
+            Assert.AreEqual(array.Rows, copy.Rows);
+            Assert.AreEqual(array.Columns, copy.Columns);
+            CollectionAssert.AreEqual(array.Array, copy.Array);
+        }
     }
 }
