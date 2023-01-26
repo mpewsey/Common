@@ -17,6 +17,7 @@
 	<VersionPrefix>0.0.3</VersionPrefix>
 	<Configurations>Debug;Release</Configurations>
 	<PackageProjectUrl>https://github.com/mpewsey/Common</PackageProjectUrl>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
