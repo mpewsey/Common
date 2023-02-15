@@ -185,7 +185,7 @@ namespace MPewsey.Common.Collections
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool IndexExists(int row, int column)
         {
-            return (uint)row < Rows && (uint)column < Columns;
+            return row < Rows && column < Columns && row >= 0 && column >= 0;
         }
 
         /// <summary>

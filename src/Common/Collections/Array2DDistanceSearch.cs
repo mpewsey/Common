@@ -74,14 +74,19 @@ namespace MPewsey.Common.Collections
         /// <param name="distance">The distance to the current index.</param>
         private void SearchDistances(int row, int column, int distance)
         {
-            if (!Array.IndexExists(row, column) || Predicate.Invoke(Array[row, column]) || (uint)Distances[row, column] <= distance)
+            if (!Array.IndexExists(row, column) || Predicate.Invoke(Array[row, column]))
                 return;
 
-            Distances[row, column] = distance++;
-            SearchDistances(row, column - 1, distance);
-            SearchDistances(row, column + 1, distance);
-            SearchDistances(row - 1, column, distance);
-            SearchDistances(row + 1, column, distance);
+            var currentDistance = Distances[row, column];
+
+            if (currentDistance > distance || currentDistance < 0)
+            {
+                Distances[row, column] = distance++;
+                SearchDistances(row, column - 1, distance);
+                SearchDistances(row, column + 1, distance);
+                SearchDistances(row - 1, column, distance);
+                SearchDistances(row + 1, column, distance);
+            }
         }
     }
 }

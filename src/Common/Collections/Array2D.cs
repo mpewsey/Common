@@ -256,7 +256,7 @@ namespace MPewsey.Common.Collections
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool IndexExists(int row, int column)
         {
-            return (uint)row < Rows && (uint)column < Columns;
+            return row < Rows && column < Columns && row >= 0 && column >= 0;
         }
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace MPewsey.Common.Collections
         /// <exception cref="IndexOutOfRangeException">Raised if the index is outside the bounds of the array.</exception>
         public Vector2DInt InverseIndex(int index)
         {
-            if ((uint)index < Array.Length)
+            if (index < Array.Length && index >= 0)
                 return new Vector2DInt(index / Columns, index % Columns);
             throw new IndexOutOfRangeException($"Index out of range: {index}.");
         }
@@ -286,7 +286,7 @@ namespace MPewsey.Common.Collections
         /// Returns the first 2D index where the specified predicate is true.
         /// Returns a -1 vector if no index is found.
         /// </summary>
-        /// <param name="predicate"></param>
+        /// <param name="predicate">The predicate, taking each element.</param>
         public Vector2DInt FindIndex(Func<T, bool> predicate)
         {
             for (int i = 0; i < Rows; i++)
@@ -301,6 +301,10 @@ namespace MPewsey.Common.Collections
             return new Vector2DInt(-1, -1);
         }
 
+        /// <summary>
+        /// Returns a list of indexes where the specified predicate is true.
+        /// </summary>
+        /// <param name="predicate">The predicate, taking each element.</param>
         public List<Vector2DInt> FindIndexes(Func<T, bool> predicate)
         {
             var result = new List<Vector2DInt>();
