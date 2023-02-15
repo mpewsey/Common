@@ -136,6 +136,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0c50564d15ef68ca901f68752a6beb27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first 2D index where the specified predicate is true. Returns a -1 vector if no index is found.  <a href="class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a0c50564d15ef68ca901f68752a6beb27">More...</a><br /></td></tr>
 <tr class="separator:a0c50564d15ef68ca901f68752a6beb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a316c0d77fd624d324f1f69727b1119bc"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="struct_m_pewsey_1_1_common_1_1_mathematics_1_1_vector2_d_int.html">Vector2DInt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a316c0d77fd624d324f1f69727b1119bc">FindIndexes</a> (Func&lt; T, bool &gt; predicate)</td></tr>
+<tr class="memdesc:a316c0d77fd624d324f1f69727b1119bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of indexes where the specified predicate is true.  <a href="class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a316c0d77fd624d324f1f69727b1119bc">More...</a><br /></td></tr>
 <tr class="separator:a316c0d77fd624d324f1f69727b1119bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad433438bc14513d50940168344e02c99"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#ad433438bc14513d50940168344e02c99">GetOrDefault</a> (int row, int column, T fallback=default)</td></tr>
 <tr class="memdesc:ad433438bc14513d50940168344e02c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value at the specified index if it exists. If not, returns the fallback value.  <a href="class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#ad433438bc14513d50940168344e02c99">More...</a><br /></td></tr>
@@ -432,7 +433,7 @@ Private Member Functions</h2></td></tr>
 <p>Returns the first 2D index where the specified predicate is true. Returns a -1 vector if no index is found. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">predicate</td><td></td></tr>
+    <tr><td class="paramname">predicate</td><td>The predicate, taking each element.</td></tr>
   </table>
   </dd>
 </dl>
@@ -457,7 +458,15 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00304">304</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p>Returns a list of indexes where the specified predicate is true. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">predicate</td><td>The predicate, taking each element.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00308">308</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -493,7 +502,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00324">324</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00328">328</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -539,7 +548,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00347">347</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00351">351</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -578,7 +587,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00360">360</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00364">364</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -719,7 +728,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new array mirrored horizontally, i.e. about the vertical axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00426">426</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00430">430</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -740,7 +749,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new array mirrored vertically, i.e. about the horizontal axis. </p>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00445">445</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00449">449</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -795,7 +804,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new array rotated 180 degrees. </p>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00387">387</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00391">391</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -816,7 +825,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new array rotated clockwise 270 degrees. </p>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00407">407</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00411">411</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>
@@ -837,7 +846,7 @@ Private Member Functions</h2></td></tr>
 
 <p>Returns a new array rotated clockwise 90 degrees. </p>
 
-<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00368">368</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_array2_d_8cs_source.html#l00372">372</a> of file <a class="el" href="_array2_d_8cs_source.html">Array2D.cs</a>.</p>
 
 </div>
 </div>

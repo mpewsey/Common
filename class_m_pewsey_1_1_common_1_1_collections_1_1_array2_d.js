@@ -8,6 +8,7 @@ var class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d =
     [ "Copy", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a636fdf1cf7aaaf82868f2b47d65a731f", null ],
     [ "Fill", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a727f8b2ac2648681d0f1662cce467497", null ],
     [ "FindIndex", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a0c50564d15ef68ca901f68752a6beb27", null ],
+    [ "FindIndexes", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a316c0d77fd624d324f1f69727b1119bc", null ],
     [ "FlattenArray", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a7956d043f2c12f8cc33c8247599b7a92", null ],
     [ "GetOrDefault", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#ad433438bc14513d50940168344e02c99", null ],
     [ "GetOrDefault", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a9439a1a501dab66e167de8a7ff64b27d", null ],
