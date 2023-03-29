@@ -39,8 +39,15 @@ namespace MPewsey.Common.Pipelines
         public T GetArgument<T>(string key)
         {
             if (Outputs.TryGetValue(key, out var value))
-                return (T)value;
-            return (T)Inputs[key];
+            {
+                if (value is T outputValue)
+                    return outputValue;
+                throw new System.InvalidCastException($"Invalid cast for argument: {key}. Attempted to cast {value.GetType()} to {typeof(T)}.");
+            }
+
+            if (Inputs[key] is T inputValue)
+                return inputValue;
+            throw new System.InvalidCastException($"Invalid cast for argument: {key}. Attempted to cast {Inputs[key].GetType()} to {typeof(T)}.");
         }
 
         /// <summary>
@@ -49,7 +56,9 @@ namespace MPewsey.Common.Pipelines
         /// <param name="key">The input key.</param>
         public T GetInput<T>(string key)
         {
-            return (T)Inputs[key];
+            if (Inputs[key] is T value)
+                return value;
+            throw new System.InvalidCastException($"Invalid cast for argument: {key}. Attempted to cast {Inputs[key].GetType()} to {typeof(T)}.");
         }
 
         /// <summary>
@@ -58,7 +67,9 @@ namespace MPewsey.Common.Pipelines
         /// <param name="key">The output key.</param>
         public T GetOutput<T>(string key)
         {
-            return (T)Outputs[key];
+            if (Outputs[key] is T value)
+                return value;
+            throw new System.InvalidCastException($"Invalid cast for argument: {key}. Attempted to cast {Outputs[key].GetType()} to {typeof(T)}.");
         }
 
         /// <summary>
