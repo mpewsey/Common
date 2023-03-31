@@ -278,7 +278,12 @@ namespace MPewsey.Common.Collections
         public Vector2DInt InverseIndex(int index)
         {
             if (index < Array.Length && index >= 0)
-                return new Vector2DInt(index / Columns, index % Columns);
+            {
+                var row = index / Columns;
+                var column = index - row * Columns;
+                return new Vector2DInt(row, column);
+            }
+
             throw new IndexOutOfRangeException($"Index out of range: {index}.");
         }
 
