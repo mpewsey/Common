@@ -340,7 +340,7 @@ namespace MPewsey.Common.Random
                 {
                     var index = DrawWeightedIndex(weights, ref totals);
 
-                    if (index >= 0)
+                    if (index >= 0 && index < weights.Count)
                     {
                         if (!withReplacement)
                             weights[index] = 0;
