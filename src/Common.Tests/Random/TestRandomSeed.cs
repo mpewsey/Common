@@ -34,12 +34,52 @@ namespace MPewsey.Common.Random.Tests
         }
 
         [TestMethod]
+        public void TestDrawWeightedIndexesDoubleWithReplacement()
+        {
+            var seed = new RandomSeed();
+            var values = new double[] { 0, 1, 0 };
+            var result = seed.DrawWeightedIndexes(values, 10, true);
+            var expected = Enumerable.Repeat(1, 10).ToList();
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestDrawWeightedIndexesDoubleWithoutReplacement()
+        {
+            var seed = new RandomSeed();
+            var values = new double[] { 0, 1, 0 };
+            var result = seed.DrawWeightedIndexes(values, 10, false);
+            var expected = Enumerable.Repeat(1, 1).ToList();
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void TestDrawWeightedIndexFloat()
         {
             var seed = new RandomSeed();
             var values = new float[] { 0, 1, 0 };
             Assert.AreEqual(1, seed.DrawWeightedIndex(values));
             Assert.AreEqual(-1, seed.DrawWeightedIndex(Array.Empty<float>()));
+        }
+
+        [TestMethod]
+        public void TestDrawWeightedIndexesFloatWithReplacement()
+        {
+            var seed = new RandomSeed();
+            var values = new float[] { 0, 1, 0 };
+            var result = seed.DrawWeightedIndexes(values, 10, true);
+            var expected = Enumerable.Repeat(1, 10).ToList();
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestDrawWeightedIndexesFloatWithoutReplacement()
+        {
+            var seed = new RandomSeed();
+            var values = new float[] { 0, 1, 0 };
+            var result = seed.DrawWeightedIndexes(values, 10, false);
+            var expected = Enumerable.Repeat(1, 1).ToList();
+            CollectionAssert.AreEqual(expected, result);
         }
 
         [TestMethod]
