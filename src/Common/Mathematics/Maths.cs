@@ -11,43 +11,71 @@ namespace MPewsey.Common.Mathematics
         /// <summary>
         /// Returns the cumulative sums of the list.
         /// </summary>
-        /// <param name="values">An list of values.</param>
+        /// <param name="values">A list of values.</param>
         public static double[] CumSum(IList<double> values)
         {
+            var result = Array.Empty<double>();
+            CumSum(values, ref result);
+            return result;
+        }
+
+        /// <summary>
+        /// Adds the cumulative sums of the list to the specified results array.
+        /// The results array is resized if it is not already the same length of the values list.
+        /// </summary>
+        /// <param name="values">A list of values</param>
+        /// <param name="result">The results array.</param>
+        public static void CumSum(IList<double> values, ref double[] result)
+        {
             if (values.Count == 0)
-                return Array.Empty<double>();
-
-            double total = 0;
-            var totals = new double[values.Count];
-
-            for (int i = 0; i < totals.Length; i++)
             {
-                total += values[i];
-                totals[i] = total;
+                result = Array.Empty<double>();
+                return;
             }
 
-            return totals;
+            double total = 0;
+            Array.Resize(ref result, values.Count);
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                total += values[i];
+                result[i] = total;
+            }
         }
 
         /// <summary>
         /// Returns the cumulative sums of the list.
         /// </summary>
-        /// <param name="values">An list of values.</param>
+        /// <param name="values">A list of values.</param>
         public static double[] CumSum(IList<float> values)
         {
+            var result = Array.Empty<double>();
+            CumSum(values, ref result);
+            return result;
+        }
+
+        /// <summary>
+        /// Adds the cumulative sums of the list to the specified results array.
+        /// The results array is resized if it is not already the same length of the values list.
+        /// </summary>
+        /// <param name="values">A list of values</param>
+        /// <param name="result">The results array.</param>
+        public static void CumSum(IList<float> values, ref double[] result)
+        {
             if (values.Count == 0)
-                return Array.Empty<double>();
-
-            double total = 0;
-            var totals = new double[values.Count];
-
-            for (int i = 0; i < totals.Length; i++)
             {
-                total += values[i];
-                totals[i] = total;
+                result = Array.Empty<double>();
+                return;
             }
 
-            return totals;
+            double total = 0;
+            Array.Resize(ref result, values.Count);
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                total += values[i];
+                result[i] = total;
+            }
         }
 
         /// <summary>
