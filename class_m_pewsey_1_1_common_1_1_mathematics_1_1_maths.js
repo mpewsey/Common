@@ -4,6 +4,12 @@ var class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths =
     [ "CumSum", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#aaa7e5bf3604fc1ff7df01c30893e43b8", null ],
     [ "CumSum", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#ab1467700b6ac60b8dc60970e3a3b4876", null ],
     [ "CumSum", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#aaabba513b36076b5c097fff687a0c1f5", null ],
+    [ "MaxIndex", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#aa0cac70d36ffbb8ac6f6d2d9a333f9af", null ],
+    [ "MaxIndex", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#a14c986267b193d1b45bc2a41ed27737f", null ],
+    [ "MaxIndex", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#ad3f08764c8a022f6e0ab2da273c7ed2b", null ],
+    [ "MinIndex", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#aa9e9565322faf4c35ec1fea1c26a2a4f", null ],
+    [ "MinIndex", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#a4a0c116fd307bab9c3ceef73ab8e586e", null ],
+    [ "MinIndex", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#ad9126e9b657413db87acca2d8b650b0d", null ],
     [ "Softmax", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#aab9e2f8b3c3f90ecc058aabf246ec230", null ],
     [ "Softmax", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html#a4d280fab2560684bae2084abf5c11112", null ]
 ];
