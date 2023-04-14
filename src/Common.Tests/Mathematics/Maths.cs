@@ -78,5 +78,53 @@ namespace MPewsey.Common.Mathematics.Tests
             CollectionAssert.AreEqual(expected, result);
             CollectionAssert.AreEqual(Array.Empty<double>(), Maths.Softmax(Array.Empty<double>()));
         }
+
+        [TestMethod]
+        public void TestFloatMaxIndex()
+        {
+            var values = new float[] { 1, 10, 5 };
+            Assert.AreEqual(1, Maths.MaxIndex(values));
+            Assert.AreEqual(-1, Maths.MaxIndex(Array.Empty<float>()));
+        }
+
+        [TestMethod]
+        public void TestDoubleMaxIndex()
+        {
+            var values = new double[] { 1, 10, 5 };
+            Assert.AreEqual(1, Maths.MaxIndex(values));
+            Assert.AreEqual(-1, Maths.MaxIndex(Array.Empty<double>()));
+        }
+
+        [TestMethod]
+        public void TestIntMaxIndex()
+        {
+            var values = new int[] { 1, 10, 5 };
+            Assert.AreEqual(1, Maths.MaxIndex(values));
+            Assert.AreEqual(-1, Maths.MaxIndex(Array.Empty<int>()));
+        }
+
+        [TestMethod]
+        public void TestFloatMinIndex()
+        {
+            var values = new float[] { 10, 1, 5 };
+            Assert.AreEqual(1, Maths.MinIndex(values));
+            Assert.AreEqual(-1, Maths.MinIndex(Array.Empty<float>()));
+        }
+
+        [TestMethod]
+        public void TestDoubleMinIndex()
+        {
+            var values = new double[] { 10, 1, 5 };
+            Assert.AreEqual(1, Maths.MinIndex(values));
+            Assert.AreEqual(-1, Maths.MinIndex(Array.Empty<double>()));
+        }
+
+        [TestMethod]
+        public void TestIntMinIndex()
+        {
+            var values = new int[] { 10, 1, 5 };
+            Assert.AreEqual(1, Maths.MinIndex(values));
+            Assert.AreEqual(-1, Maths.MinIndex(Array.Empty<int>()));
+        }
     }
 }

@@ -137,5 +137,167 @@ namespace MPewsey.Common.Mathematics
 
             return softmax;
         }
+
+        /// <summary>
+        /// Returns the index in the collection where the first maximum value occurs.
+        /// Returns -1 if the collection is empty.
+        /// </summary>
+        /// <param name="values">The collection of values.</param>
+        public static int MaxIndex(IList<float> values)
+        {
+            if (values.Count == 0)
+                return -1;
+
+            var index = 0;
+            var maxValue = values[0];
+
+            for (int i = 1; i < values.Count; i++)
+            {
+                var value = values[i];
+                
+                if (value > maxValue)
+                {
+                    index = i;
+                    maxValue = value;
+                }
+            }
+
+            return index;
+        }
+
+        /// <summary>
+        /// Returns the index in the collection where the first maximum value occurs.
+        /// Returns -1 if the collection is empty.
+        /// </summary>
+        /// <param name="values">The collection of values.</param>
+        public static int MaxIndex(IList<double> values)
+        {
+            if (values.Count == 0)
+                return -1;
+
+            var index = 0;
+            var maxValue = values[0];
+
+            for (int i = 1; i < values.Count; i++)
+            {
+                var value = values[i];
+
+                if (value > maxValue)
+                {
+                    index = i;
+                    maxValue = value;
+                }
+            }
+
+            return index;
+        }
+
+        /// <summary>
+        /// Returns the index in the collection where the first maximum value occurs.
+        /// Returns -1 if the collection is empty.
+        /// </summary>
+        /// <param name="values">The collection of values.</param>
+        public static int MaxIndex(IList<int> values)
+        {
+            if (values.Count == 0)
+                return -1;
+
+            var index = 0;
+            var maxValue = values[0];
+
+            for (int i = 1; i < values.Count; i++)
+            {
+                var value = values[i];
+
+                if (value > maxValue)
+                {
+                    index = i;
+                    maxValue = value;
+                }
+            }
+
+            return index;
+        }
+
+        /// <summary>
+        /// Returns the index in the collection where the first minimum value occurs.
+        /// Returns -1 if the collection is empty.
+        /// </summary>
+        /// <param name="values">The collection of values.</param>
+        public static int MinIndex(IList<float> values)
+        {
+            if (values.Count == 0)
+                return -1;
+
+            var index = 0;
+            var minValue = values[0];
+
+            for (int i = 1; i < values.Count; i++)
+            {
+                var value = values[i];
+                
+                if (value < minValue)
+                {
+                    index = i;
+                    minValue = value;
+                }
+            }
+
+            return index;
+        }
+
+        /// <summary>
+        /// Returns the index in the collection where the first minimum value occurs.
+        /// Returns -1 if the collection is empty.
+        /// </summary>
+        /// <param name="values">The collection of values.</param>
+        public static int MinIndex(IList<double> values)
+        {
+            if (values.Count == 0)
+                return -1;
+
+            var index = 0;
+            var minValue = values[0];
+
+            for (int i = 1; i < values.Count; i++)
+            {
+                var value = values[i];
+
+                if (value < minValue)
+                {
+                    index = i;
+                    minValue = value;
+                }
+            }
+
+            return index;
+        }
+
+        /// <summary>
+        /// Returns the index in the collection where the first minimum value occurs.
+        /// Returns -1 if the collection is empty.
+        /// </summary>
+        /// <param name="values">The collection of values.</param>
+        public static int MinIndex(IList<int> values)
+        {
+            if (values.Count == 0)
+                return -1;
+
+            var index = 0;
+            var minValue = values[0];
+
+            for (int i = 1; i < values.Count; i++)
+            {
+                var value = values[i];
+
+                if (value < minValue)
+                {
+                    index = i;
+                    minValue = value;
+                }
+            }
+
+            return index;
+        }
     }
 }
