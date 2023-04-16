@@ -18,15 +18,6 @@ namespace MPewsey.Common.Pipelines.Tests
             public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken) => false;
         }
 
-        public class LongPipelineStep : IPipelineStep
-        {
-            public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken)
-            {
-                Thread.Sleep(100);
-                return true;
-            }
-        }
-
         [TestMethod]
         public void TestEmptyPipeline()
         {
@@ -57,21 +48,30 @@ namespace MPewsey.Common.Pipelines.Tests
         [TestMethod]
         public void TestCancellationToken()
         {
-            var token = new CancellationTokenSource(50).Token;
-            var pipeline = new Pipeline(new LongPipelineStep(), new LongPipelineStep());
+            var token = new CancellationTokenSource(0).Token;
+            var pipeline = new Pipeline(new SucceedingPipelineStep());
             var inputs = new Dictionary<string, object>();
             var results = pipeline.Run(inputs, token);
             Assert.IsFalse(results.Success);
         }
 
         [TestMethod]
-        public async Task TestRunAsync()
+        public async Task TestRunAsyncCancellationToken()
         {
-            var token = new CancellationTokenSource(50).Token;
-            var pipeline = new Pipeline(new LongPipelineStep(), new LongPipelineStep());
+            var token = new CancellationTokenSource(0).Token;
+            var pipeline = new Pipeline(new SucceedingPipelineStep());
             var inputs = new Dictionary<string, object>();
             var results = await pipeline.RunAsync(inputs, token);
             Assert.IsFalse(results.Success);
+        }
+
+        [TestMethod]
+        public async Task TestRunAsync()
+        {
+            var pipeline = new Pipeline(new SucceedingPipelineStep());
+            var inputs = new Dictionary<string, object>();
+            var results = await pipeline.RunAsync(inputs);
+            Assert.IsTrue(results.Success);
         }
     }
 }

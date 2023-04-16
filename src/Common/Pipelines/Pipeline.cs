@@ -61,7 +61,7 @@ namespace MPewsey.Common.Pipelines
         /// <param name="cancellationToken">The cancellation token.</param>
         public Task<PipelineResults> RunAsync(Dictionary<string, object> inputs, CancellationToken cancellationToken = default)
         {
-            return Task.Run(() => Run(inputs, cancellationToken), cancellationToken);
+            return Task.Run(() => Run(inputs, cancellationToken));
         }
     }
 }
