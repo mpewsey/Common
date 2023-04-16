@@ -104,6 +104,10 @@ namespace MPewsey.Common.Collections
             }
         }
 
+        /// <summary>
+        /// Initializes a copy of an array.
+        /// </summary>
+        /// <param name="other">The array to copy.</param>
         public BitArray2D(BitArray2D other)
         {
             if (other.Rows > 0 && other.Columns > 0)
@@ -133,6 +137,7 @@ namespace MPewsey.Common.Collections
             return (int)Math.Ceiling(rows * (double)columns / ChunkSize);
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"BitArray2D(Rows = {Rows}, Columns = {Columns})";

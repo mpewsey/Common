@@ -106,10 +106,10 @@ namespace MPewsey.Common.Mathematics.Tests
         }
 
         [TestMethod]
-        public void TestVector2DIntCast()
+        public void TestTo2D()
         {
             var v = new Vector3DInt(1, 2, 3);
-            Assert.AreEqual(new Vector2DInt(1, 2), (Vector2DInt)v);
+            Assert.AreEqual(new Vector2DInt(1, 2), v.To2D());
         }
 
         [TestMethod]

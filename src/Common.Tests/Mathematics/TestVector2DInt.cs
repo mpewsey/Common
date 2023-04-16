@@ -119,10 +119,10 @@ namespace MPewsey.Common.Mathematics.Tests
         }
 
         [TestMethod]
-        public void TestVector3DIntCast()
+        public void TestTo3D()
         {
             var v = new Vector2DInt(1, 2);
-            Assert.AreEqual(new Vector3DInt(1, 2, 0), (Vector3DInt)v);
+            Assert.AreEqual(new Vector3DInt(1, 2, 0), v.To3D());
         }
 
         [TestMethod]

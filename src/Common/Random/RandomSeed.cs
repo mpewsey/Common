@@ -71,6 +71,7 @@ namespace MPewsey.Common.Random
             Array.Copy(other.Seeds, Seeds, other.Seeds.Length);
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"RandomSeed(Seed = {Seed})";

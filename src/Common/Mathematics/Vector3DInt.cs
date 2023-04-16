@@ -50,18 +50,24 @@ namespace MPewsey.Common.Mathematics
             Z = z;
         }
 
-        public static explicit operator Vector2DInt(Vector3DInt v) => new Vector2DInt(v.X, v.Y);
+        /// <summary>
+        /// Converts the vector to a 2D vector, without the Z value.
+        /// </summary>
+        public Vector2DInt To2D() => new Vector2DInt(X, Y);
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Vector3DInt({X}, {Y}, {Z})";
         }
 
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is Vector3DInt vector && Equals(vector);
         }
 
+        /// <inheritdoc/>
         public bool Equals(Vector3DInt other)
         {
             return X == other.X &&
@@ -69,6 +75,7 @@ namespace MPewsey.Common.Mathematics
                    Z == other.Z;
         }
 
+        /// <inheritdoc/>
         public int CompareTo(Vector3DInt other)
         {
             var comparison = X.CompareTo(other.X);
@@ -84,6 +91,7 @@ namespace MPewsey.Common.Mathematics
             return Z.CompareTo(other.Z);
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = -307843816;
@@ -93,26 +101,31 @@ namespace MPewsey.Common.Mathematics
             return hashCode;
         }
 
+        /// <inheritdoc/>
         public static bool operator ==(Vector3DInt left, Vector3DInt right)
         {
             return left.Equals(right);
         }
 
+        /// <inheritdoc/>
         public static bool operator !=(Vector3DInt left, Vector3DInt right)
         {
             return !(left == right);
         }
 
+        /// <inheritdoc/>
         public static Vector3DInt operator +(Vector3DInt left, Vector3DInt right)
         {
             return new Vector3DInt(left.X + right.X, left.Y + right.Y, left.Z + right.Z);
         }
 
+        /// <inheritdoc/>
         public static Vector3DInt operator -(Vector3DInt left, Vector3DInt right)
         {
             return new Vector3DInt(left.X - right.X, left.Y - right.Y, left.Z - right.Z);
         }
 
+        /// <inheritdoc/>
         public static Vector3DInt operator -(Vector3DInt vector)
         {
             return new Vector3DInt(-vector.X, -vector.Y, -vector.Z);

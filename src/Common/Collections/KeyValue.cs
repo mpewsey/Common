@@ -31,6 +31,7 @@ namespace MPewsey.Common.Collections
             Value = value;
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"KeyValue(Key = {Key}, Value = {Value})";

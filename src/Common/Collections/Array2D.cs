@@ -127,6 +127,7 @@ namespace MPewsey.Common.Collections
         /// <param name="array">The built-in 2D array.</param>
         public static implicit operator Array2D<T>(T[,] array) => new Array2D<T>(array);
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"Array2D<{typeof(T)}>(Rows = {Rows}, Columns = {Columns})";
