@@ -7,6 +7,13 @@ var searchData=
   ['indexexists_4',['IndexExists',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a9965573bda3d26f1b8523c1aea4e5f5c',1,'MPewsey.Common.Collections.Array2D.IndexExists()'],['../class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#ace90078decbadaeb89e4afd686eb951a',1,'MPewsey.Common.Collections.BitArray2D.IndexExists()']]],
   ['initialize_5',['Initialize',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d_distance_search.html#a8296fa49782da70b225cf10a1f6ff091',1,'MPewsey::Common::Collections::Array2DDistanceSearch']]],
   ['inputs_6',['Inputs',['../class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline_results.html#a618cdd1dbafb8a6339ca6912e2131f95',1,'MPewsey::Common::Pipelines::PipelineResults']]],
-  ['inverseindex_7',['InverseIndex',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a116ddb8acc5f732b30f5ab3039d55e11',1,'MPewsey::Common::Collections::Array2D']]],
-  ['ipipelinestep_8',['IPipelineStep',['../interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step.html',1,'MPewsey::Common::Pipelines']]]
+  ['intersectwith_7',['IntersectWith',['../class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html#ab8ba3db306c3ce6d5bf8f410ecf53e8a',1,'MPewsey::Common::Collections::DataContractHashSet']]],
+  ['inverseindex_8',['InverseIndex',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a116ddb8acc5f732b30f5ab3039d55e11',1,'MPewsey::Common::Collections::Array2D']]],
+  ['ipipelinestep_9',['IPipelineStep',['../interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step.html',1,'MPewsey::Common::Pipelines']]],
+  ['ispropersubsetof_10',['IsProperSubsetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html#aa34063bb1f8a87c97110e2ed253e79be',1,'MPewsey::Common::Collections::DataContractHashSet']]],
+  ['ispropersupersetof_11',['IsProperSupersetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html#ad2347e4a9e4847c4b0cf723b359aef5a',1,'MPewsey::Common::Collections::DataContractHashSet']]],
+  ['isreadonly_12',['IsReadOnly',['../class_m_pewsey_1_1_common_1_1_collections_1_1_base_data_contract_dictionary.html#a971c15dd17b0dbafb200399dde58f545',1,'MPewsey.Common.Collections.BaseDataContractDictionary.IsReadOnly()'],['../class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html#ac86de728a8ec3599697ff7bfaa734007',1,'MPewsey.Common.Collections.DataContractHashSet.IsReadOnly()']]],
+  ['issubsetof_13',['IsSubsetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html#afc399a0ea3f0fe7ec4998860cd8ea7b6',1,'MPewsey::Common::Collections::DataContractHashSet']]],
+  ['issupersetof_14',['IsSupersetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html#a4e333b6f0f07cd0716e3e1238078dab7',1,'MPewsey::Common::Collections::DataContractHashSet']]],
+  ['issynchronized_15',['IsSynchronized',['../class_m_pewsey_1_1_common_1_1_collections_1_1_base_data_contract_dictionary.html#a7091936f5a9bf5ab64eaddcc4d06db7b',1,'MPewsey::Common::Collections::BaseDataContractDictionary']]]
 ];

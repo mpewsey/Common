@@ -2,6 +2,7 @@ var class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d =
 [
     [ "BitArray2D", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a06da7e6b87cab4ca7611e6278a4afaf8", null ],
     [ "BitArray2D", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a851ccba8ca4c28d976e79651baf93e65", null ],
+    [ "BitArray2D", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#aad8a4d4c1ca6e2137767d1558ba52918", null ],
     [ "ChunkCount", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a1383c4206ab5e0c800f1c3c6a9115f4c", null ],
     [ "Clear", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a9525ff6b03487f551a7de6552c6f2c6c", null ],
     [ "Copy", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a1605356e1a315f7fa19707f40bb8e258", null ],
@@ -10,6 +11,7 @@ var class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d =
     [ "Index", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a204416e1a55b4b9990d5d8d61a03657c", null ],
     [ "IndexExists", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#ace90078decbadaeb89e4afd686eb951a", null ],
     [ "ToArrayString", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#aeccbbccda8f3b685139fb6c302623c8e", null ],
+    [ "ToString", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a794a181564f354118e2a9f66d78bcf2d", null ],
     [ "ChunkSize", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#abaa6cc2844c58076e666b87e01db5385", null ],
     [ "Array", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a1f85a846e24ea711d4daba8277dacb9c", null ],
     [ "Columns", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html#a4db314516bab4ffaa8a33195481d523f", null ],
