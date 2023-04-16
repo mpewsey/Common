@@ -1,4 +1,6 @@
-﻿namespace MPewsey.Common.Pipelines
+﻿using System.Threading;
+
+namespace MPewsey.Common.Pipelines
 {
     /// <summary>
     /// An interface for creating a step of a Pipeline.
@@ -10,6 +12,7 @@
         /// Artifacts should be written to the results outputs.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
-        bool ApplyStep(PipelineResults results);
+        /// <param name="cancellationToken">The cancellation token.</param>
+        bool ApplyStep(PipelineResults results, CancellationToken cancellationToken);
     }
 }

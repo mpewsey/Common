@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/mpewsey/Common</RepositoryUrl>
     <PackageTags>library</PackageTags>
     <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
-	<VersionPrefix>0.0.4</VersionPrefix>
+	<VersionPrefix>0.0.5</VersionPrefix>
 	<Configurations>Debug;Release</Configurations>
 	<PackageProjectUrl>https://github.com/mpewsey/Common</PackageProjectUrl>
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>

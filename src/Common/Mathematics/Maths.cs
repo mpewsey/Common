@@ -154,7 +154,7 @@ namespace MPewsey.Common.Mathematics
             for (int i = 1; i < values.Count; i++)
             {
                 var value = values[i];
-                
+
                 if (value > maxValue)
                 {
                     index = i;
@@ -235,7 +235,7 @@ namespace MPewsey.Common.Mathematics
             for (int i = 1; i < values.Count; i++)
             {
                 var value = values[i];
-                
+
                 if (value < minValue)
                 {
                     index = i;
