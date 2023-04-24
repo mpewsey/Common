@@ -235,9 +235,7 @@ namespace MPewsey.Common.Collections
         /// <param name="comparer">The element equality comparer.</param>
         public bool ValuesAreEqual(Array2D<T> other, Func<T, T, bool> comparer)
         {
-            if (Rows != other.Rows
-                || Columns != other.Columns
-                || Array.Length != other.Array.Length)
+            if (Array.Length != other.Array.Length || Rows != other.Rows || Columns != other.Columns)
                 return false;
 
             for (int i = 0; i < Array.Length; i++)
@@ -257,7 +255,7 @@ namespace MPewsey.Common.Collections
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool IndexExists(int row, int column)
         {
-            return row < Rows && column < Columns && row >= 0 && column >= 0;
+            return (uint)row < (uint)Rows && (uint)column < (uint)Columns;
         }
 
         /// <summary>
@@ -278,7 +276,7 @@ namespace MPewsey.Common.Collections
         /// <exception cref="IndexOutOfRangeException">Raised if the index is outside the bounds of the array.</exception>
         public Vector2DInt InverseIndex(int index)
         {
-            if (index < Array.Length && index >= 0)
+            if ((uint)index < (uint)Array.Length)
             {
                 var row = index / Columns;
                 var column = index - row * Columns;
@@ -373,6 +371,25 @@ namespace MPewsey.Common.Collections
         }
 
         /// <summary>
+        /// Returns the index corresponding to when the array is rotated clockwise 90 degrees.
+        /// </summary>
+        /// <param name="index">The index vector.</param>
+        public Vector2DInt IndexRotated90(Vector2DInt index)
+        {
+            return IndexRotated90(index.X, index.Y);
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is rotated clockwise 90 degrees.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        public Vector2DInt IndexRotated90(int row, int column)
+        {
+            return new Vector2DInt(column, Rows - 1 - row);
+        }
+
+        /// <summary>
         /// Returns a new array rotated clockwise 90 degrees.
         /// </summary>
         public Array2D<T> Rotated90()
@@ -383,12 +400,30 @@ namespace MPewsey.Common.Collections
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    var k = rotation.Columns - 1 - i;
-                    rotation[j, k] = this[i, j];
+                    rotation[IndexRotated90(i, j)] = this[i, j];
                 }
             }
 
             return rotation;
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is rotated 180 degrees.
+        /// </summary>
+        /// <param name="index">The index vector.</param>
+        public Vector2DInt IndexRotated180(Vector2DInt index)
+        {
+            return IndexRotated180(index.X, index.Y);
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is rotated 180 degrees.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        public Vector2DInt IndexRotated180(int row, int column)
+        {
+            return new Vector2DInt(Rows - 1 - row, Columns - 1 - column);
         }
 
         /// <summary>
@@ -402,13 +437,30 @@ namespace MPewsey.Common.Collections
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    var m = rotation.Rows - 1 - i;
-                    var n = rotation.Columns - 1 - j;
-                    rotation[m, n] = this[i, j];
+                    rotation[IndexRotated180(i, j)] = this[i, j];
                 }
             }
 
             return rotation;
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is rotated clockwise 270 degrees.
+        /// </summary>
+        /// <param name="index">The index vector.</param>
+        public Vector2DInt IndexRotated270(Vector2DInt index)
+        {
+            return IndexRotated270(index.X, index.Y);
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is rotated clockwise 270 degrees.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        public Vector2DInt IndexRotated270(int row, int column)
+        {
+            return new Vector2DInt(Columns - 1 - column, row);
         }
 
         /// <summary>
@@ -422,12 +474,30 @@ namespace MPewsey.Common.Collections
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    var k = rotation.Rows - 1 - j;
-                    rotation[k, i] = this[i, j];
+                    rotation[IndexRotated270(i, j)] = this[i, j];
                 }
             }
 
             return rotation;
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is mirrored horizontally.
+        /// </summary>
+        /// <param name="index">The index vector.</param>
+        public Vector2DInt IndexMirroredHorizontally(Vector2DInt index)
+        {
+            return IndexMirroredHorizontally(index.X, index.Y);
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is mirrored horizontally.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        public Vector2DInt IndexMirroredHorizontally(int row, int column)
+        {
+            return new Vector2DInt(row, Columns - 1 - column);
         }
 
         /// <summary>
@@ -441,12 +511,30 @@ namespace MPewsey.Common.Collections
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    var k = mirror.Columns - 1 - j;
-                    mirror[i, k] = this[i, j];
+                    mirror[IndexMirroredHorizontally(i, j)] = this[i, j];
                 }
             }
 
             return mirror;
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is mirrored vertically.
+        /// </summary>
+        /// <param name="index">The index vector.</param>
+        public Vector2DInt IndexMirroredVertically(Vector2DInt index)
+        {
+            return IndexMirroredVertically(index.X, index.Y);
+        }
+
+        /// <summary>
+        /// Returns the index corresponding to when the array is mirrored vertically.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        public Vector2DInt IndexMirroredVertically(int row, int column)
+        {
+            return new Vector2DInt(Rows - 1 - row, column);
         }
 
         /// <summary>
@@ -460,8 +548,7 @@ namespace MPewsey.Common.Collections
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    var k = mirror.Rows - 1 - i;
-                    mirror[k, j] = this[i, j];
+                    mirror[IndexMirroredVertically(i, j)] = this[i, j];
                 }
             }
 

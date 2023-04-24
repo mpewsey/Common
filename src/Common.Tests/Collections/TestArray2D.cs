@@ -127,6 +127,35 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestIndexRotated90()
+        {
+            Array2D<int> array = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
+            Array2D<int> expected = new int[,]
+            {
+                { 9, 5, 1 },
+                { 10, 6, 2 },
+                { 11, 7, 3 },
+                { 12, 8, 4 },
+            };
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    var index1 = new Vector2DInt(i, j);
+                    var index2 = array.IndexRotated90(index1);
+                    Assert.AreEqual(expected[index2], array[index1]);
+                }
+            }
+        }
+
+        [TestMethod]
         public void TestRotate90()
         {
             Array2D<int> array = new int[,]
@@ -156,6 +185,34 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestIndexRotated180()
+        {
+            Array2D<int> array = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
+            Array2D<int> expected = new int[,]
+            {
+                { 12, 11, 10, 9 },
+                { 8, 7, 6, 5 },
+                { 4, 3, 2, 1 },
+            };
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    var index1 = new Vector2DInt(i, j);
+                    var index2 = array.IndexRotated180(index1);
+                    Assert.AreEqual(expected[index2], array[index1]);
+                }
+            }
+        }
+
+        [TestMethod]
         public void TestRotate180()
         {
             Array2D<int> array = new int[,]
@@ -181,6 +238,35 @@ namespace MPewsey.Common.Collections.Tests
             Console.WriteLine(result.ToArrayString());
             CollectionAssert.AreEqual(expected.Array, result.Array);
             CollectionAssert.AreEqual(array.Array, array.Rotated180().Rotated180().Array);
+        }
+
+        [TestMethod]
+        public void TestIndexRotated270()
+        {
+            Array2D<int> array = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
+            Array2D<int> expected = new int[,]
+            {
+                { 4, 8, 12 },
+                { 3, 7, 11 },
+                { 2, 6, 10 },
+                { 1, 5, 9 },
+            };
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    var index1 = new Vector2DInt(i, j);
+                    var index2 = array.IndexRotated270(index1);
+                    Assert.AreEqual(expected[index2], array[index1]);
+                }
+            }
         }
 
         [TestMethod]
@@ -213,6 +299,34 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestIndexMirroredVertically()
+        {
+            Array2D<int> array = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
+            Array2D<int> expected = new int[,]
+            {
+                { 9, 10, 11, 12 },
+                { 5, 6, 7, 8 },
+                { 1, 2, 3, 4 },
+            };
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    var index1 = new Vector2DInt(i, j);
+                    var index2 = array.IndexMirroredVertically(index1);
+                    Assert.AreEqual(expected[index2], array[index1]);
+                }
+            }
+        }
+
+        [TestMethod]
         public void TestMirroredVertically()
         {
             Array2D<int> array = new int[,]
@@ -237,6 +351,34 @@ namespace MPewsey.Common.Collections.Tests
             Console.WriteLine("\nResult:");
             Console.WriteLine(result.ToArrayString());
             CollectionAssert.AreEqual(expected.Array, result.Array);
+        }
+
+        [TestMethod]
+        public void TestIndexMirroredHorizontally()
+        {
+            Array2D<int> array = new int[,]
+            {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+            };
+
+            Array2D<int> expected = new int[,]
+            {
+                { 4, 3, 2, 1 },
+                { 8, 7, 6, 5 },
+                { 12, 11, 10, 9 },
+            };
+
+            for (int i = 0; i < array.Rows; i++)
+            {
+                for (int j = 0; j < array.Columns; j++)
+                {
+                    var index1 = new Vector2DInt(i, j);
+                    var index2 = array.IndexMirroredHorizontally(index1);
+                    Assert.AreEqual(expected[index2], array[index1]);
+                }
+            }
         }
 
         [TestMethod]
