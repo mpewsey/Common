@@ -20,25 +20,25 @@ namespace MPewsey.Common.Random
         /// <summary>
         /// The random seed.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public int Seed { get; private set; }
 
         /// <summary>
         /// The first position of the randomizer.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         private int Position1 { get; set; }
 
         /// <summary>
         /// The second position of the randomizer.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         private int Position2 { get; set; }
 
         /// <summary>
         /// An array of previous seeds.
         /// </summary>
-        [DataMember(Order = 4, IsRequired = true)]
+        [DataMember(Order = 4)]
         private int[] Seeds { get; set; } = new int[56];
 
         /// <summary>
