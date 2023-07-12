@@ -22,19 +22,19 @@ namespace MPewsey.Common.Mathematics
         /// <summary>
         /// The x value.
         /// </summary>
-        [DataMember(Order = 0, IsRequired = true)]
+        [DataMember(Order = 0)]
         public int X { get; private set; }
 
         /// <summary>
         /// The y value.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public int Y { get; private set; }
 
         /// <summary>
         /// The z value.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public int Z { get; private set; }
 
         /// <summary>

@@ -12,7 +12,7 @@ namespace MPewsey.Common.Collections
         /// <summary>
         /// An array of dictionary values.
         /// </summary>
-        [DataMember(Order = 1, Name = "DictionaryValues", IsRequired = true)]
+        [DataMember(Order = 1, Name = "DictionaryValues")]
         public TValue[] ValuesArray { get => GetValuesArray(); set => SetDictionary(value); }
 
         /// <summary>

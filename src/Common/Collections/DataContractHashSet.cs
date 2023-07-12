@@ -18,7 +18,7 @@ namespace MPewsey.Common.Collections
         /// <summary>
         /// An array of hash set entries.
         /// </summary>
-        [DataMember(Order = 1, Name = "HashSet", IsRequired = true)]
+        [DataMember(Order = 1, Name = "HashSet")]
         public T[] Array { get => GetArray(); set => HashSet = new HashSet<T>(value); }
 
         /// <summary>

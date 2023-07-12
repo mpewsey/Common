@@ -13,7 +13,7 @@ namespace MPewsey.Common.Collections
         /// <summary>
         /// An array of key value pairs.
         /// </summary>
-        [DataMember(Order = 1, Name = "Dictionary", IsRequired = true)]
+        [DataMember(Order = 1, Name = "Dictionary")]
         public KeyValue<TKey, TValue>[] KeyValueArray { get => GetKeyValueArray(); set => SetDictionary(value); }
 
         /// <summary>

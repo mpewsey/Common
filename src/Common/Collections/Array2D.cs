@@ -16,19 +16,19 @@ namespace MPewsey.Common.Collections
         /// <summary>
         /// The number of rows in the array.
         /// </summary>
-        [DataMember(Order = 1, IsRequired = true)]
+        [DataMember(Order = 1)]
         public int Rows { get; private set; }
 
         /// <summary>
         /// The number of columns in the array.
         /// </summary>
-        [DataMember(Order = 2, IsRequired = true)]
+        [DataMember(Order = 2)]
         public int Columns { get; private set; }
 
         /// <summary>
         /// The underlying flat array.
         /// </summary>
-        [DataMember(Order = 3, IsRequired = true)]
+        [DataMember(Order = 3)]
         public T[] Array { get; private set; } = System.Array.Empty<T>();
 
         /// <summary>

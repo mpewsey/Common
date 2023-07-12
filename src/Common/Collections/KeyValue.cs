@@ -11,13 +11,13 @@ namespace MPewsey.Common.Collections
         /// <summary>
         /// The key.
         /// </summary>
-        [DataMember(Order = 1, Name = "Key", IsRequired = true)]
+        [DataMember(Order = 1, Name = "Key")]
         public TKey Key { get; private set; }
 
         /// <summary>
         /// The value.
         /// </summary>
-        [DataMember(Order = 2, Name = "Value", IsRequired = true)]
+        [DataMember(Order = 2, Name = "Value")]
         public TValue Value { get; private set; }
 
         /// <summary>
