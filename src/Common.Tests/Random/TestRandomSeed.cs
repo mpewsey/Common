@@ -30,6 +30,7 @@ namespace MPewsey.Common.Random.Tests
             var seed = new RandomSeed();
             var values = new double[] { 0, 1, 0 };
             Assert.AreEqual(1, seed.DrawWeightedIndex(values));
+            Assert.AreEqual(1, seed.DrawWeightedIndex(values, new List<double>()));
             Assert.AreEqual(-1, seed.DrawWeightedIndex(Array.Empty<double>()));
         }
 
@@ -59,6 +60,7 @@ namespace MPewsey.Common.Random.Tests
             var seed = new RandomSeed();
             var values = new float[] { 0, 1, 0 };
             Assert.AreEqual(1, seed.DrawWeightedIndex(values));
+            Assert.AreEqual(1, seed.DrawWeightedIndex(values, new List<double>()));
             Assert.AreEqual(-1, seed.DrawWeightedIndex(Array.Empty<float>()));
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MPewsey.Common.Mathematics.Tests
@@ -17,6 +18,16 @@ namespace MPewsey.Common.Mathematics.Tests
         }
 
         [TestMethod]
+        public void TestCumSumDoubleNonAlloc()
+        {
+            var values = new double[] { 1, 2, 3 };
+            var result = new List<double>();
+            Maths.CumSum(values, result);
+            var expected = new double[] { 1, 3, 6 };
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void TestEmptyCumSumDouble()
         {
             var array = Array.Empty<double>();
@@ -28,6 +39,16 @@ namespace MPewsey.Common.Mathematics.Tests
         {
             var values = new float[] { 1, 2, 3 };
             var result = Maths.CumSum(values);
+            var expected = new double[] { 1, 3, 6 };
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestCumSumFloatNonAlloc()
+        {
+            var values = new float[] { 1, 2, 3 };
+            var result = new List<double>();
+            Maths.CumSum(values, result);
             var expected = new double[] { 1, 3, 6 };
             CollectionAssert.AreEqual(expected, result);
         }
