@@ -44,6 +44,23 @@ namespace MPewsey.Common.Mathematics
         }
 
         /// <summary>
+        /// Adds the cumulative sum of the list to teh specified results list.
+        /// </summary>
+        /// <param name="values">A list of values.</param>
+        /// <param name="result">The results list.</param>
+        public static void CumSum(IList<double> values, List<double> result)
+        {
+            result.Clear();
+            double total = 0;
+
+            for (int i = 0; i < values.Count; i++)
+            {
+                total += values[i];
+                result.Add(total);
+            }
+        }
+
+        /// <summary>
         /// Returns the cumulative sums of the list.
         /// </summary>
         /// <param name="values">A list of values.</param>
@@ -75,6 +92,23 @@ namespace MPewsey.Common.Mathematics
             {
                 total += values[i];
                 result[i] = total;
+            }
+        }
+
+        /// <summary>
+        /// Adds the cumulative sum of the list to teh specified results list.
+        /// </summary>
+        /// <param name="values">A list of values.</param>
+        /// <param name="result">The results list.</param>
+        public static void CumSum(IList<float> values, List<double> result)
+        {
+            result.Clear();
+            double total = 0;
+
+            for (int i = 0; i < values.Count; i++)
+            {
+                total += values[i];
+                result.Add(total);
             }
         }
 

@@ -317,6 +317,52 @@ namespace MPewsey.Common.Random
         }
 
         /// <summary>
+        /// Draws a random weighted index from a list.
+        /// The specified totals buffer allows for minimal garbage generation.
+        /// </summary>
+        /// <param name="weights">A list of weights.</param>
+        /// <param name="totals">The totals buffer.</param>
+        public int DrawWeightedIndex(IList<double> weights, List<double> totals)
+        {
+            if (weights.Count > 0)
+            {
+                Maths.CumSum(weights, totals);
+                var value = NextDouble(totals[totals.Count - 1]);
+
+                for (int i = 0; i < totals.Count; i++)
+                {
+                    if (value <= totals[i] && totals[i] > 0)
+                        return i;
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
+        /// Draws a random weighted index from a list.
+        /// The specified totals buffer allows for minimal garbage generation.
+        /// </summary>
+        /// <param name="weights">A list of weights.</param>
+        /// <param name="totals">The totals buffer.</param>
+        public int DrawWeightedIndex(IList<float> weights, List<double> totals)
+        {
+            if (weights.Count > 0)
+            {
+                Maths.CumSum(weights, totals);
+                var value = NextDouble(totals[totals.Count - 1]);
+
+                for (int i = 0; i < totals.Count; i++)
+                {
+                    if (value <= totals[i] && totals[i] > 0)
+                        return i;
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
         /// Draws a quantity of random weighted indexes from a list.
         /// Based on the draw weights and whether indexes are drawn with replacement, the resulting
         /// list may be less than the specified count.
