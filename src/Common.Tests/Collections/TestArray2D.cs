@@ -6,7 +6,7 @@ using System;
 namespace MPewsey.Common.Collections.Tests
 {
     [TestClass]
-    public class TestArray2D
+    public class TestListPool
     {
         [TestMethod]
         public void TestSaveAndLoad()
