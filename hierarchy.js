@@ -44,6 +44,7 @@ var hierarchy =
     [ "MPewsey.Common.Serialization.JsonSerialization", "class_m_pewsey_1_1_common_1_1_serialization_1_1_json_serialization.html", null ],
     [ "MPewsey.Common.Serialization.JsonWriterSettings", "class_m_pewsey_1_1_common_1_1_serialization_1_1_json_writer_settings.html", null ],
     [ "MPewsey.Common.Collections.KeyValue< TKey, TValue >", "struct_m_pewsey_1_1_common_1_1_collections_1_1_key_value.html", null ],
+    [ "MPewsey.Common.Buffers.ListPool< T >", "class_m_pewsey_1_1_common_1_1_buffers_1_1_list_pool.html", null ],
     [ "MPewsey.Common.Logging.Logger", "class_m_pewsey_1_1_common_1_1_logging_1_1_logger.html", null ],
     [ "MPewsey.Common.Mathematics.Maths", "class_m_pewsey_1_1_common_1_1_mathematics_1_1_maths.html", null ],
     [ "MPewsey.Common.Pipelines.Pipeline", "class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline.html", null ],

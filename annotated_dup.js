@@ -2,6 +2,9 @@ var annotated_dup =
 [
     [ "MPewsey", "namespace_m_pewsey.html", [
       [ "Common", "namespace_m_pewsey_1_1_common.html", [
+        [ "Buffers", "namespace_m_pewsey_1_1_common_1_1_buffers.html", [
+          [ "ListPool", "class_m_pewsey_1_1_common_1_1_buffers_1_1_list_pool.html", "class_m_pewsey_1_1_common_1_1_buffers_1_1_list_pool" ]
+        ] ],
         [ "Collections", "namespace_m_pewsey_1_1_common_1_1_collections.html", [
           [ "Array2D", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d" ],
           [ "Array2DDistanceSearch", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d_distance_search.html", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d_distance_search" ],
