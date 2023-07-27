@@ -1,7 +1,7 @@
-﻿using MPewsey.Common.Buffers;
-using MPewsey.Common.Mathematics;
+﻿using MPewsey.Common.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.Common.Random
@@ -274,10 +274,13 @@ namespace MPewsey.Common.Random
         /// <param name="weights">A list of weights.</param>
         public int DrawWeightedIndex(IList<double> weights)
         {
-            var totals = ListPool<double>.Rent();
-            var index = DrawWeightedIndex(weights, totals);
-            ListPool<double>.Return(ref totals);
-            return index;
+            if (weights.Count > 0)
+            {
+                var totals = new List<double>(weights.Count);
+                return DrawWeightedIndex(weights, totals);
+            }
+
+            return -1;
         }
 
         /// <summary>
@@ -286,10 +289,13 @@ namespace MPewsey.Common.Random
         /// <param name="weights">A list of weights.</param>
         public int DrawWeightedIndex(IList<float> weights)
         {
-            var totals = ListPool<double>.Rent();
-            var index = DrawWeightedIndex(weights, totals);
-            ListPool<double>.Return(ref totals);
-            return index;
+            if (weights.Count > 0)
+            {
+                var totals = new List<double>(weights.Count);
+                return DrawWeightedIndex(weights, totals);
+            }
+
+            return -1;
         }
 
         /// <summary>
@@ -300,13 +306,8 @@ namespace MPewsey.Common.Random
         /// <param name="totals">The totals buffer.</param>
         public int DrawWeightedIndex(IList<double> weights, List<double> totals)
         {
-            if (weights.Count > 0)
-            {
-                Maths.CumSum(weights, totals);
-                return DrawIndex(totals);
-            }
-
-            return -1;
+            Maths.CumSum(weights, totals);
+            return DrawIndex(totals);
         }
 
         /// <summary>
@@ -317,13 +318,8 @@ namespace MPewsey.Common.Random
         /// <param name="totals">The totals buffer.</param>
         public int DrawWeightedIndex(IList<float> weights, List<double> totals)
         {
-            if (weights.Count > 0)
-            {
-                Maths.CumSum(weights, totals);
-                return DrawIndex(totals);
-            }
-
-            return -1;
+            Maths.CumSum(weights, totals);
+            return DrawIndex(totals);
         }
 
         /// <summary>
@@ -353,8 +349,7 @@ namespace MPewsey.Common.Random
 
             if (weights.Count > 0)
             {
-                var totals = ListPool<double>.Rent();
-                Maths.CumSum(weights, totals);
+                var totals = Maths.CumSum(weights);
 
                 for (int i = 0; i < count; i++)
                 {
@@ -363,8 +358,6 @@ namespace MPewsey.Common.Random
                     if ((uint)index < (uint)weights.Count)
                         result.Add(index);
                 }
-
-                ListPool<double>.Return(ref totals);
             }
 
             return result;
@@ -379,16 +372,17 @@ namespace MPewsey.Common.Random
         {
             count = Math.Min(count, weights.Count);
             var result = new List<int>(count);
-            var weightsCopy = ListPool<double>.Rent();
-            weightsCopy.AddRange(weights);
 
-            if (weightsCopy.Count > 0)
+            if (weights.Count > 0)
             {
+                var weightsCopy = weights.ToArray();
+                var totals = new List<double>(weightsCopy.Length);
+
                 for (int i = 0; i < count; i++)
                 {
-                    var index = DrawWeightedIndex(weightsCopy);
+                    var index = DrawWeightedIndex(weightsCopy, totals);
 
-                    if ((uint)index < (uint)weightsCopy.Count)
+                    if ((uint)index < (uint)weightsCopy.Length)
                     {
                         weightsCopy[index] = 0;
                         result.Add(index);
@@ -396,7 +390,6 @@ namespace MPewsey.Common.Random
                 }
             }
 
-            ListPool<double>.Return(ref weightsCopy);
             return result;
         }
 
@@ -427,8 +420,7 @@ namespace MPewsey.Common.Random
 
             if (weights.Count > 0)
             {
-                var totals = ListPool<double>.Rent();
-                Maths.CumSum(weights, totals);
+                var totals = Maths.CumSum(weights);
 
                 for (int i = 0; i < count; i++)
                 {
@@ -437,8 +429,6 @@ namespace MPewsey.Common.Random
                     if ((uint)index < (uint)weights.Count)
                         result.Add(index);
                 }
-
-                ListPool<double>.Return(ref totals);
             }
 
             return result;
@@ -453,16 +443,17 @@ namespace MPewsey.Common.Random
         {
             count = Math.Min(count, weights.Count);
             var result = new List<int>(count);
-            var weightsCopy = ListPool<float>.Rent();
-            weightsCopy.AddRange(weights);
 
-            if (weightsCopy.Count > 0)
+            if (weights.Count > 0)
             {
+                var weightsCopy = weights.ToArray();
+                var totals = new List<double>(weightsCopy.Length);
+
                 for (int i = 0; i < count; i++)
                 {
-                    var index = DrawWeightedIndex(weightsCopy);
+                    var index = DrawWeightedIndex(weightsCopy, totals);
 
-                    if ((uint)index < (uint)weightsCopy.Count)
+                    if ((uint)index < (uint)weightsCopy.Length)
                     {
                         weightsCopy[index] = 0;
                         result.Add(index);
@@ -470,7 +461,6 @@ namespace MPewsey.Common.Random
                 }
             }
 
-            ListPool<float>.Return(ref weightsCopy);
             return result;
         }
 
