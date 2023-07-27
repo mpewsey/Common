@@ -1,7 +1,7 @@
-﻿using MPewsey.Common.Mathematics;
+﻿using MPewsey.Common.Buffers;
+using MPewsey.Common.Mathematics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 
 namespace MPewsey.Common.Random
@@ -249,30 +249,16 @@ namespace MPewsey.Common.Random
         }
 
         /// <summary>
-        /// Draws a random weighted index from a list.
+        /// Draws an index from the list of cumulative weights.
         /// </summary>
-        /// <param name="weights">A list of weights.</param>
-        public int DrawWeightedIndex(IList<double> weights)
+        /// <param name="totals">A list of cumulative weights.</param>
+        private int DrawIndex(IList<double> totals)
         {
-            var totals = Array.Empty<double>();
-            return DrawWeightedIndex(weights, ref totals);
-        }
-
-        /// <summary>
-        /// Draws a random weighted index from a list.
-        /// The specified totals buffer allows for minimal garbage generation.
-        /// The buffer will be resized to match the weights list if it is not already the correct size.
-        /// </summary>
-        /// <param name="weights">A list of weights.</param>
-        /// <param name="totals">The totals buffer.</param>
-        public int DrawWeightedIndex(IList<double> weights, ref double[] totals)
-        {
-            if (weights.Count > 0)
+            if (totals.Count > 0)
             {
-                Maths.CumSum(weights, ref totals);
-                var value = NextDouble(totals[totals.Length - 1]);
+                var value = NextDouble(totals[totals.Count - 1]);
 
-                for (int i = 0; i < totals.Length; i++)
+                for (int i = 0; i < totals.Count; i++)
                 {
                     if (value <= totals[i] && totals[i] > 0)
                         return i;
@@ -280,6 +266,18 @@ namespace MPewsey.Common.Random
             }
 
             return -1;
+        }
+
+        /// <summary>
+        /// Draws a random weighted index from a list.
+        /// </summary>
+        /// <param name="weights">A list of weights.</param>
+        public int DrawWeightedIndex(IList<double> weights)
+        {
+            var totals = ListPool<double>.Rent();
+            var index = DrawWeightedIndex(weights, totals);
+            ListPool<double>.Return(ref totals);
+            return index;
         }
 
         /// <summary>
@@ -288,32 +286,10 @@ namespace MPewsey.Common.Random
         /// <param name="weights">A list of weights.</param>
         public int DrawWeightedIndex(IList<float> weights)
         {
-            var totals = Array.Empty<double>();
-            return DrawWeightedIndex(weights, ref totals);
-        }
-
-        /// <summary>
-        /// Draws a random weighted index from a list.
-        /// The specified totals buffer allows for minimal garbage generation.
-        /// The buffer will be resized to match the weights list if it is not already the correct size.
-        /// </summary>
-        /// <param name="weights">A list of weights.</param>
-        /// <param name="totals">The totals buffer.</param>
-        public int DrawWeightedIndex(IList<float> weights, ref double[] totals)
-        {
-            if (weights.Count > 0)
-            {
-                Maths.CumSum(weights, ref totals);
-                var value = NextDouble(totals[totals.Length - 1]);
-
-                for (int i = 0; i < totals.Length; i++)
-                {
-                    if (value <= totals[i] && totals[i] > 0)
-                        return i;
-                }
-            }
-
-            return -1;
+            var totals = ListPool<double>.Rent();
+            var index = DrawWeightedIndex(weights, totals);
+            ListPool<double>.Return(ref totals);
+            return index;
         }
 
         /// <summary>
@@ -327,13 +303,7 @@ namespace MPewsey.Common.Random
             if (weights.Count > 0)
             {
                 Maths.CumSum(weights, totals);
-                var value = NextDouble(totals[totals.Count - 1]);
-
-                for (int i = 0; i < totals.Count; i++)
-                {
-                    if (value <= totals[i] && totals[i] > 0)
-                        return i;
-                }
+                return DrawIndex(totals);
             }
 
             return -1;
@@ -350,13 +320,7 @@ namespace MPewsey.Common.Random
             if (weights.Count > 0)
             {
                 Maths.CumSum(weights, totals);
-                var value = NextDouble(totals[totals.Count - 1]);
-
-                for (int i = 0; i < totals.Count; i++)
-                {
-                    if (value <= totals[i] && totals[i] > 0)
-                        return i;
-                }
+                return DrawIndex(totals);
             }
 
             return -1;
@@ -372,31 +336,67 @@ namespace MPewsey.Common.Random
         /// <param name="withReplacement">If false, the indexes will be drawn without replacement.</param>
         public List<int> DrawWeightedIndexes(IList<double> weights, int count, bool withReplacement)
         {
-            if (!withReplacement)
-                count = Math.Min(count, weights.Count);
+            if (withReplacement)
+                return DrawWeightedIndexesWithReplacement(weights, count);
 
+            return DrawWeightedIndexesWithoutReplacement(weights, count);
+        }
+
+        /// <summary>
+        /// Draws a quantity of random weighted indexes from a list with replacement.
+        /// </summary>
+        /// <param name="weights">A list of index draw weights.</param>
+        /// <param name="count">The desired number of drawn indexes.</param>
+        private List<int> DrawWeightedIndexesWithReplacement(IList<double> weights, int count)
+        {
             var result = new List<int>(count);
-            var totals = Array.Empty<double>();
 
-            if (weights.Count > 0 && count > 0)
+            if (weights.Count > 0)
             {
-                if (!withReplacement)
-                    weights = weights.ToArray();
+                var totals = ListPool<double>.Rent();
+                Maths.CumSum(weights, totals);
 
                 for (int i = 0; i < count; i++)
                 {
-                    var index = DrawWeightedIndex(weights, ref totals);
+                    var index = DrawIndex(totals);
 
                     if ((uint)index < (uint)weights.Count)
-                    {
-                        if (!withReplacement)
-                            weights[index] = 0;
+                        result.Add(index);
+                }
 
+                ListPool<double>.Return(ref totals);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Draws a quantity of random weighted indexes from a list without replacement.
+        /// </summary>
+        /// <param name="weights">A list of index draw weights.</param>
+        /// <param name="count">The desired number of drawn indexes.</param>
+        private List<int> DrawWeightedIndexesWithoutReplacement(IList<double> weights, int count)
+        {
+            count = Math.Min(count, weights.Count);
+            var result = new List<int>(count);
+            var weightsCopy = ListPool<double>.Rent();
+            weightsCopy.AddRange(weights);
+
+            if (weightsCopy.Count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    var index = DrawWeightedIndex(weightsCopy);
+
+                    if ((uint)index < (uint)weightsCopy.Count)
+                    {
+                        weightsCopy[index] = 0;
                         result.Add(index);
                     }
                 }
             }
 
+            ListPool<double>.Return(ref weightsCopy);
             return result;
         }
 
@@ -410,31 +410,67 @@ namespace MPewsey.Common.Random
         /// <param name="withReplacement">If false, the indexes will be drawn without replacement.</param>
         public List<int> DrawWeightedIndexes(IList<float> weights, int count, bool withReplacement)
         {
-            if (!withReplacement)
-                count = Math.Min(count, weights.Count);
+            if (withReplacement)
+                return DrawWeightedIndexesWithReplacement(weights, count);
 
+            return DrawWeightedIndexesWithoutReplacement(weights, count);
+        }
+
+        /// <summary>
+        /// Draws a quantity of random weighted indexes from a list with replacement.
+        /// </summary>
+        /// <param name="weights">A list of index draw weights.</param>
+        /// <param name="count">The desired number of drawn indexes.</param>
+        private List<int> DrawWeightedIndexesWithReplacement(IList<float> weights, int count)
+        {
             var result = new List<int>(count);
-            var totals = Array.Empty<double>();
 
-            if (weights.Count > 0 && count > 0)
+            if (weights.Count > 0)
             {
-                if (!withReplacement)
-                    weights = weights.ToArray();
+                var totals = ListPool<double>.Rent();
+                Maths.CumSum(weights, totals);
 
                 for (int i = 0; i < count; i++)
                 {
-                    var index = DrawWeightedIndex(weights, ref totals);
+                    var index = DrawIndex(totals);
 
                     if ((uint)index < (uint)weights.Count)
-                    {
-                        if (!withReplacement)
-                            weights[index] = 0;
+                        result.Add(index);
+                }
 
+                ListPool<double>.Return(ref totals);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Draws a quantity of random weighted indexes from a list without replacement.
+        /// </summary>
+        /// <param name="weights">A list of index draw weights.</param>
+        /// <param name="count">The desired number of drawn indexes.</param>
+        private List<int> DrawWeightedIndexesWithoutReplacement(IList<float> weights, int count)
+        {
+            count = Math.Min(count, weights.Count);
+            var result = new List<int>(count);
+            var weightsCopy = ListPool<float>.Rent();
+            weightsCopy.AddRange(weights);
+
+            if (weightsCopy.Count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    var index = DrawWeightedIndex(weightsCopy);
+
+                    if ((uint)index < (uint)weightsCopy.Count)
+                    {
+                        weightsCopy[index] = 0;
                         result.Add(index);
                     }
                 }
             }
 
+            ListPool<float>.Return(ref weightsCopy);
             return result;
         }
 
