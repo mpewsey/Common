@@ -147,5 +147,37 @@ namespace MPewsey.Common.Mathematics.Tests
             Assert.AreEqual(1, Maths.MinIndex(values));
             Assert.AreEqual(-1, Maths.MinIndex(Array.Empty<int>()));
         }
+
+        [TestMethod]
+        public void TestClamp01()
+        {
+            Assert.AreEqual(0, Maths.Clamp01(-1));
+            Assert.AreEqual(1, Maths.Clamp01(2));
+            Assert.AreEqual(0.5, Maths.Clamp01(0.5));
+        }
+
+        [TestMethod]
+        public void TestLerp()
+        {
+            Assert.AreEqual(10.0, Maths.Lerp(10, 30, 0));
+            Assert.AreEqual(10.0, Maths.Lerp(10, 30, -1));
+            Assert.AreEqual(30.0, Maths.Lerp(10, 30, 1));
+            Assert.AreEqual(30.0, Maths.Lerp(10, 30, 2));
+            Assert.AreEqual(20.0, Maths.Lerp(10, 30, 0.5));
+            Assert.AreEqual(15.0, Maths.Lerp(10, 30, 0.25));
+            Assert.AreEqual(25.0, Maths.Lerp(10, 30, 0.75));
+        }
+
+        [TestMethod]
+        public void TestLerpUnclamped()
+        {
+            Assert.AreEqual(10.0, Maths.LerpUnclamped(10, 30, 0));
+            Assert.AreEqual(-10.0, Maths.LerpUnclamped(10, 30, -1));
+            Assert.AreEqual(30.0, Maths.LerpUnclamped(10, 30, 1));
+            Assert.AreEqual(50.0, Maths.LerpUnclamped(10, 30, 2));
+            Assert.AreEqual(20.0, Maths.LerpUnclamped(10, 30, 0.5));
+            Assert.AreEqual(15.0, Maths.LerpUnclamped(10, 30, 0.25));
+            Assert.AreEqual(25.0, Maths.LerpUnclamped(10, 30, 0.75));
+        }
     }
 }

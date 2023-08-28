@@ -305,5 +305,41 @@ namespace MPewsey.Common.Mathematics
 
             return index;
         }
+
+        /// <summary>
+        /// Clamps the value between 0 and 1.
+        /// </summary>
+        /// <param name="t">The value.</param>
+        public static double Clamp01(double t)
+        {
+            if (t < 0)
+                return 0;
+            if (t > 1)
+                return 1;
+            return t;
+        }
+
+        /// <summary>
+        /// Linearly interpolates between two points based on a fractional distance parameter.
+        /// This method will clamp the parameter to [0, 1].
+        /// </summary>
+        /// <param name="a">The first point.</param>
+        /// <param name="b">The second point.</param>
+        /// <param name="t">The fractional distance parameter, measured from the first point.</param>
+        public static double Lerp(double a, double b, double t)
+        {
+            return LerpUnclamped(a, b, Clamp01(t));
+        }
+
+        /// <summary>
+        /// Linearly interpolates between two points based on a fractional distance parameter.
+        /// </summary>
+        /// <param name="a">The first point.</param>
+        /// <param name="b">The second point.</param>
+        /// <param name="t">The fractional distance parameter, measured from the first point.</param>
+        public static double LerpUnclamped(double a, double b, double t)
+        {
+            return a * (1 - t) + b * t;
+        }
     }
 }
