@@ -18,6 +18,11 @@ namespace MPewsey.Common.Random
     public class RandomSeed
     {
         /// <summary>
+        /// The current global random number generator.
+        /// </summary>
+        public static RandomSeed Current { get; } = new RandomSeed();
+
+        /// <summary>
         /// The random seed.
         /// </summary>
         [DataMember(Order = 1)]

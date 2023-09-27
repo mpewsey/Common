@@ -371,6 +371,12 @@ namespace MPewsey.Common.Random.Tests
         }
 
         [TestMethod]
+        public void TestCurrent()
+        {
+            Assert.IsFalse(RandomSeed.Current.ChanceSatisfied(0));
+        }
+
+        [TestMethod]
         public void TestChanceSatisfied()
         {
             var seed = new RandomSeed(12345);
