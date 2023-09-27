@@ -50,7 +50,7 @@ var NAVTREEINDEX =
 [
 "_array2_d_8cs_source.html",
 "class_m_pewsey_1_1_common_1_1_collections_1_1_data_contract_hash_set.html#a2bae422b32be502fcf5190068de1b464",
-"class_m_pewsey_1_1_common_1_1_serialization_1_1_xml_serialization.html#a3d719cb104b15f0e620ccd95facbc0ce"
+"class_m_pewsey_1_1_common_1_1_serialization_1_1_json_writer_settings.html#a93b99dabe915ebd0c1e86de62590380f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
