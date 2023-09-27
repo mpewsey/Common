@@ -181,6 +181,33 @@ namespace MPewsey.Common.Random
         }
 
         /// <summary>
+        /// Returns a random float on the interval [0, 1).
+        /// </summary>
+        public float NextFloat()
+        {
+            return (float)NextDouble();
+        }
+
+        /// <summary>
+        /// Returns a random float on the interval [0, maxValue).
+        /// </summary>
+        /// <param name="maxValue">The maximum value.</param>
+        public float NextFloat(float maxValue)
+        {
+            return (float)NextDouble(maxValue);
+        }
+
+        /// <summary>
+        /// Returns a random float on the interval [minValue, maxValue).
+        /// </summary>
+        /// <param name="minValue">The minimum value.</param>
+        /// <param name="maxValue">The maximum value.</param>
+        public float NextFloat(float minValue, float maxValue)
+        {
+            return (float)NextDouble(minValue, maxValue);
+        }
+
+        /// <summary>
         /// Returns a random double on the interval [0, 1).
         /// </summary>
         public double NextDouble()

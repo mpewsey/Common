@@ -287,6 +287,45 @@ namespace MPewsey.Common.Random.Tests
         }
 
         [TestMethod]
+        public void TestNextFloat()
+        {
+            var seed = new RandomSeed(12345);
+
+            for (int i = 0; i < 1_000_000; i++)
+            {
+                var value = seed.NextFloat();
+                Assert.IsTrue(value >= 0);
+                Assert.IsTrue(value < 1);
+            }
+        }
+
+        [TestMethod]
+        public void TestNextFloatMaxValue()
+        {
+            var seed = new RandomSeed(12345);
+
+            for (int i = 0; i < 1_000_000; i++)
+            {
+                var value = seed.NextFloat(200);
+                Assert.IsTrue(value >= 0);
+                Assert.IsTrue(value < 200);
+            }
+        }
+
+        [TestMethod]
+        public void TestNextFloatRange()
+        {
+            var seed = new RandomSeed(12345);
+
+            for (int i = 0; i < 1_000_000; i++)
+            {
+                var value = seed.NextFloat(100, 200);
+                Assert.IsTrue(value >= 100);
+                Assert.IsTrue(value < 200);
+            }
+        }
+
+        [TestMethod]
         public void TestNextDoubleMaxValue()
         {
             var seed = new RandomSeed(12345);
