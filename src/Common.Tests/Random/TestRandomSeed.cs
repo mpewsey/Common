@@ -400,5 +400,31 @@ namespace MPewsey.Common.Random.Tests
             Assert.IsTrue(results.Contains(true));
             Assert.IsTrue(results.Contains(false));
         }
+
+        [TestMethod]
+        public void TestDoubleInsideUnitCircle()
+        {
+            var seed = new RandomSeed(12345);
+
+            for (int i = 0; i < 1_000_000; i++)
+            {
+                var (x, y) = seed.DoubleInsideUnitCircle();
+                Assert.IsTrue(Math.Abs(x) <= 1);
+                Assert.IsTrue(Math.Abs(y) <= 1);
+            }
+        }
+
+        [TestMethod]
+        public void TestFloatInsideUnitCircle()
+        {
+            var seed = new RandomSeed(12345);
+
+            for (int i = 0; i < 1_000_000; i++)
+            {
+                var (x, y) = seed.FloatInsideUnitCircle();
+                Assert.IsTrue(Math.Abs(x) <= 1);
+                Assert.IsTrue(Math.Abs(y) <= 1);
+            }
+        }
     }
 }

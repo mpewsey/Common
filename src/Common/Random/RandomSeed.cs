@@ -241,6 +241,27 @@ namespace MPewsey.Common.Random
         }
 
         /// <summary>
+        /// Returns a random floating precision point inside the unit circle.
+        /// </summary>
+        public (float x, float y) FloatInsideUnitCircle()
+        {
+            var (x, y) = DoubleInsideUnitCircle();
+            return ((float)x, (float)y);
+        }
+
+        /// <summary>
+        /// Returns a random double precision point inside the unit circle.
+        /// </summary>
+        public (double x, double y) DoubleInsideUnitCircle()
+        {
+            var radius = Math.Sqrt(NextDouble());
+            var angle = NextDouble(2 * Math.PI);
+            var x = radius * Math.Cos(angle);
+            var y = radius * Math.Sin(angle);
+            return (x, y);
+        }
+
+        /// <summary>
         /// Returns a random high resolution double on the interval [0, 1).
         /// </summary>
         private double NextLargeDouble()
