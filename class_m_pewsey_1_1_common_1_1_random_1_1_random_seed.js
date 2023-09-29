@@ -32,6 +32,8 @@ var class_m_pewsey_1_1_common_1_1_random_1_1_random_seed =
     [ "Shuffled< T >", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a52a4e402002d74c5fb0464140c5ecf95", null ],
     [ "ToString", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a799e596c934fb246d1bf7bde59aef765", null ],
     [ "WrapIndex", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a096670385976586dace483a912d953b5", null ],
+    [ "x", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#aa0b9fb7e6ae2feaeb49b6195dc56f7c1", null ],
+    [ "x", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#ad52799b0786843bea19b918b67450ba0", null ],
     [ "Current", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#aaf61ad66a611f3a837b03d0210a1fcac", null ],
     [ "Position1", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#a61e1e6b6d4cd7c4552319580b891296a", null ],
     [ "Position2", "class_m_pewsey_1_1_common_1_1_random_1_1_random_seed.html#ad2e44d9a48274017c3ad6083c8ead1cc", null ],
