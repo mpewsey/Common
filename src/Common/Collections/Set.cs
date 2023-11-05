@@ -7,8 +7,8 @@ namespace MPewsey.Common.Collections
     /// <summary>
     /// A hash set that is data contract serializable.
     /// </summary>
-    [DataContract(Name = "DataContractHashSet", Namespace = Constants.DataContractNamespace)]
-    public class DataContractHashSet<T> : ICollection<T>, IEnumerable<T>, IEnumerable, IReadOnlyCollection<T>, ISet<T>
+    [DataContract(Name = "Set", Namespace = Constants.DataContractNamespace)]
+    public class Set<T> : ICollection<T>, IEnumerable<T>, IEnumerable, IReadOnlyCollection<T>, ISet<T>
     {
         /// <summary>
         /// The underlying hash set.
@@ -18,13 +18,13 @@ namespace MPewsey.Common.Collections
         /// <summary>
         /// An array of hash set entries.
         /// </summary>
-        [DataMember(Order = 1, Name = "HashSet")]
+        [DataMember(Order = 1, Name = "Values")]
         public T[] Array { get => GetArray(); set => HashSet = new HashSet<T>(value); }
 
         /// <summary>
         /// Initializes a new hash set.
         /// </summary>
-        public DataContractHashSet()
+        public Set()
         {
 
         }
@@ -33,7 +33,7 @@ namespace MPewsey.Common.Collections
         /// Initializes a new hash set from a collection.
         /// </summary>
         /// <param name="collection">A collection of values.</param>
-        public DataContractHashSet(IEnumerable<T> collection)
+        public Set(IEnumerable<T> collection)
         {
             HashSet = new HashSet<T>(collection);
         }
@@ -42,9 +42,9 @@ namespace MPewsey.Common.Collections
         /// Creates a new data contract hash set with the specified hash set assigned.
         /// </summary>
         /// <param name="set">The hash set.</param>
-        public static implicit operator DataContractHashSet<T>(HashSet<T> set)
+        public static implicit operator Set<T>(HashSet<T> set)
         {
-            return set == null ? null : new DataContractHashSet<T> { HashSet = set };
+            return set == null ? null : new Set<T> { HashSet = set };
         }
 
         /// <summary>

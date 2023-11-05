@@ -7,19 +7,19 @@ namespace MPewsey.Common.Collections
     /// <summary>
     /// A dictionary that is data contract serializable.
     /// </summary>
-    [DataContract(Name = "DataContractDictionary", Namespace = Constants.DataContractNamespace)]
-    public class DataContractDictionary<TKey, TValue> : BaseDataContractDictionary<TKey, TValue>
+    [DataContract(Name = "HashMap", Namespace = Constants.DataContractNamespace)]
+    public class HashMap<TKey, TValue> : HashMapBase<TKey, TValue>
     {
         /// <summary>
         /// An array of key value pairs.
         /// </summary>
-        [DataMember(Order = 1, Name = "Dictionary")]
+        [DataMember(Order = 1, Name = "Map")]
         public KeyValue<TKey, TValue>[] KeyValueArray { get => GetKeyValueArray(); set => SetDictionary(value); }
 
         /// <summary>
         /// Initializes a new empty dictionary.
         /// </summary>
-        public DataContractDictionary()
+        public HashMap()
         {
 
         }
@@ -28,7 +28,7 @@ namespace MPewsey.Common.Collections
         /// Initializes a new dictionary with the specified capacity.
         /// </summary>
         /// <param name="capacity">The capacity.</param>
-        public DataContractDictionary(int capacity)
+        public HashMap(int capacity)
         {
             Dictionary = new Dictionary<TKey, TValue>(capacity);
         }
@@ -37,7 +37,7 @@ namespace MPewsey.Common.Collections
         /// Initializes a copy of the specified dictionary.
         /// </summary>
         /// <param name="dict">The dictionary.</param>
-        public DataContractDictionary(DataContractDictionary<TKey, TValue> dict)
+        public HashMap(HashMap<TKey, TValue> dict)
         {
             Dictionary = new Dictionary<TKey, TValue>(dict.Dictionary);
         }
@@ -46,9 +46,9 @@ namespace MPewsey.Common.Collections
         /// Creates a new data contract dictionary instance with the specified dictionary assigned.
         /// </summary>
         /// <param name="dict">The dictionary.</param>
-        public static implicit operator DataContractDictionary<TKey, TValue>(Dictionary<TKey, TValue> dict)
+        public static implicit operator HashMap<TKey, TValue>(Dictionary<TKey, TValue> dict)
         {
-            return dict == null ? null : new DataContractDictionary<TKey, TValue> { Dictionary = dict };
+            return dict == null ? null : new HashMap<TKey, TValue> { Dictionary = dict };
         }
 
         /// <summary>
