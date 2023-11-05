@@ -8,20 +8,20 @@ using System.Linq;
 namespace MPewsey.Common.Collections.Tests
 {
     [TestClass]
-    public class TestDataContractDictionary
+    public class TestHashMap
     {
         [TestMethod]
         public void TestSaveAndLoad()
         {
-            var path = "DataContractDictionary.xml";
-            var dict = new DataContractDictionary<int, int>
+            var path = "HashMap.xml";
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
             };
 
             XmlSerialization.SaveXml(path, dict);
-            var copy = XmlSerialization.LoadXml<DataContractDictionary<int, int>>(path);
+            var copy = XmlSerialization.LoadXml<HashMap<int, int>>(path);
             CollectionAssert.AreEquivalent(dict.Keys.ToList(), copy.Keys.ToList());
             CollectionAssert.AreEquivalent(dict.Values.ToList(), copy.Values.ToList());
         }
@@ -29,10 +29,10 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestSaveAndLoadEmptyDictionary()
         {
-            var path = "EmptyDataContractDictionary.xml";
-            var dict = new DataContractDictionary<int, int>();
+            var path = "EmptyHashMap.xml";
+            var dict = new HashMap<int, int>();
             XmlSerialization.SaveXml(path, dict);
-            var copy = XmlSerialization.LoadXml<DataContractDictionary<int, int>>(path);
+            var copy = XmlSerialization.LoadXml<HashMap<int, int>>(path);
             CollectionAssert.AreEquivalent(dict.Keys.ToList(), copy.Keys.ToList());
             CollectionAssert.AreEquivalent(dict.Values.ToList(), copy.Values.ToList());
         }
@@ -40,21 +40,21 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestInitializer()
         {
-            var dict = new DataContractDictionary<int, int>(10);
+            var dict = new HashMap<int, int>(10);
             Assert.AreEqual(0, dict.Count);
         }
 
         [TestMethod]
         public void TestIsReadOnly()
         {
-            var dict = new DataContractDictionary<int, int>();
+            var dict = new HashMap<int, int>();
             Assert.IsFalse(dict.IsReadOnly);
         }
 
         [TestMethod]
         public void TestStructKeys()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -67,7 +67,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestStructValues()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -80,7 +80,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestKeys()
         {
-            IDictionary<int, int> dict = new DataContractDictionary<int, int>
+            IDictionary<int, int> dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -93,7 +93,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestValues()
         {
-            IDictionary<int, int> dict = new DataContractDictionary<int, int>
+            IDictionary<int, int> dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -106,7 +106,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestAdd()
         {
-            var dict = new DataContractDictionary<int, int>();
+            var dict = new HashMap<int, int>();
             dict.Add(1, 2);
             Assert.AreEqual(2, dict[1]);
         }
@@ -114,7 +114,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestAddKeyValue()
         {
-            var dict = new DataContractDictionary<int, int>();
+            var dict = new HashMap<int, int>();
             dict.Add(new KeyValuePair<int, int>(1, 2));
             Assert.AreEqual(2, dict[1]);
         }
@@ -122,7 +122,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestClear()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -136,7 +136,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestContainsKey()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -148,7 +148,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestContains()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -160,7 +160,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestRemove()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -173,7 +173,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestEnumerator()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -188,21 +188,21 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestIsSynchronized()
         {
-            var dict = new DataContractDictionary<int, int>();
+            var dict = new HashMap<int, int>();
             Assert.IsFalse(dict.IsSynchronized);
         }
 
         [TestMethod]
         public void TestSyncRoot()
         {
-            var dict = new DataContractDictionary<int, int>();
+            var dict = new HashMap<int, int>();
             Assert.IsNotNull(dict.SyncRoot);
         }
 
         [TestMethod]
         public void TestReadOnlyEnumerable()
         {
-            IReadOnlyDictionary<int, int> dict = new DataContractDictionary<int, int>
+            IReadOnlyDictionary<int, int> dict = new HashMap<int, int>
             {
                 { 1, 2 },
             };
@@ -217,7 +217,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestReadOnlyKeys()
         {
-            IReadOnlyDictionary<int, int> dict = new DataContractDictionary<int, int>
+            IReadOnlyDictionary<int, int> dict = new HashMap<int, int>
             {
                 { 1, 2 },
             };
@@ -231,7 +231,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestReadOnlyValues()
         {
-            IReadOnlyDictionary<int, int> dict = new DataContractDictionary<int, int>
+            IReadOnlyDictionary<int, int> dict = new HashMap<int, int>
             {
                 { 1, 2 },
             };
@@ -245,7 +245,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestCollectionCopyTo()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
             };
@@ -257,7 +257,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestRemoveKeyValuePair()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
             };
@@ -268,7 +268,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestGetEnumerator()
         {
-            IEnumerable dict = new DataContractDictionary<int, int>
+            IEnumerable dict = new HashMap<int, int>
             {
                 { 1, 2 },
             };
@@ -282,13 +282,13 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestCopyInitializer()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
             };
 
-            var copy = new DataContractDictionary<int, int>(dict);
+            var copy = new HashMap<int, int>(dict);
             CollectionAssert.AreEquivalent(dict.Keys, copy.Keys);
             CollectionAssert.AreEquivalent(dict.Values, copy.Values);
         }
@@ -302,14 +302,14 @@ namespace MPewsey.Common.Collections.Tests
                 { 3, 4 },
             };
 
-            var cast = (DataContractDictionary<int, int>)dict;
+            var cast = (HashMap<int, int>)dict;
             Assert.AreEqual(dict, cast.Dictionary);
         }
 
         [TestMethod]
         public void TestTryGetValue()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },
@@ -322,7 +322,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestCopyTo()
         {
-            var dict = new DataContractDictionary<int, int>
+            var dict = new HashMap<int, int>
             {
                 { 1, 2 },
                 { 3, 4 },

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,12 +11,12 @@ namespace MPewsey.Common.Pipelines.Tests
     {
         public class SucceedingPipelineStep : IPipelineStep
         {
-            public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken) => true;
+            public bool ApplyStep(PipelineResults results, Action<string> logger, CancellationToken cancellationToken) => true;
         }
 
         public class FailingPipelineStep : IPipelineStep
         {
-            public bool ApplyStep(PipelineResults results, CancellationToken cancellationToken) => false;
+            public bool ApplyStep(PipelineResults results, Action<string> logger, CancellationToken cancellationToken) => false;
         }
 
         [TestMethod]
@@ -51,7 +52,7 @@ namespace MPewsey.Common.Pipelines.Tests
             var token = new CancellationTokenSource(0).Token;
             var pipeline = new Pipeline(new SucceedingPipelineStep());
             var inputs = new Dictionary<string, object>();
-            var results = pipeline.Run(inputs, token);
+            var results = pipeline.Run(inputs, Console.WriteLine, token);
             Assert.IsFalse(results.Success);
         }
 
@@ -61,7 +62,7 @@ namespace MPewsey.Common.Pipelines.Tests
             var token = new CancellationTokenSource(0).Token;
             var pipeline = new Pipeline(new SucceedingPipelineStep());
             var inputs = new Dictionary<string, object>();
-            var results = await pipeline.RunAsync(inputs, token);
+            var results = await pipeline.RunAsync(inputs, Console.WriteLine, token);
             Assert.IsFalse(results.Success);
         }
 

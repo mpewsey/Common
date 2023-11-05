@@ -8,8 +8,8 @@ namespace MPewsey.Common.Collections
     /// <summary>
     /// The base class for dictionaries with custom data contract serialization.
     /// </summary>
-    [DataContract(Name = "BaseDataContractDictionary", Namespace = Constants.DataContractNamespace)]
-    public abstract class BaseDataContractDictionary<TKey, TValue> : ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IDictionary<TKey, TValue>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IReadOnlyDictionary<TKey, TValue>, ICollection
+    [DataContract(Name = "HashMap", Namespace = Constants.DataContractNamespace)]
+    public abstract class HashMapBase<TKey, TValue> : ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable, IDictionary<TKey, TValue>, IReadOnlyCollection<KeyValuePair<TKey, TValue>>, IReadOnlyDictionary<TKey, TValue>, ICollection
     {
         /// <summary>
         /// The underlying dictionary.

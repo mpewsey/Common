@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 
 namespace MPewsey.Common.Pipelines
 {
@@ -12,7 +13,8 @@ namespace MPewsey.Common.Pipelines
         /// Artifacts should be written to the results outputs.
         /// </summary>
         /// <param name="results">The pipeline results.</param>
+        /// <param name="logger">A logging action. Ignored if null.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        bool ApplyStep(PipelineResults results, CancellationToken cancellationToken);
+        bool ApplyStep(PipelineResults results, Action<string> logger, CancellationToken cancellationToken);
     }
 }

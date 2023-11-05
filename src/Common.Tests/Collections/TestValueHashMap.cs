@@ -7,10 +7,10 @@ using System.Runtime.Serialization;
 namespace MPewsey.Common.Collections.Tests
 {
     [TestClass]
-    public class TestDataContractValueDictionary
+    public class TestValueHashMap
     {
         [DataContract]
-        public class TestEntry : IDataContractValueDictionaryValue<int>
+        public class TestEntry : IValueHashMapEntry<int>
         {
             [DataMember(Order = 1)]
             public int Id { get; set; }
@@ -23,17 +23,35 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestAdd()
+        {
+            var dict = new ValueHashMap<int, TestEntry>();
+            var entry = new TestEntry(1);
+            dict.Add(entry);
+            Assert.AreEqual(dict[1], entry);
+        }
+
+        [TestMethod]
+        public void TestSetValue()
+        {
+            var dict = new ValueHashMap<int, TestEntry>();
+            var entry = new TestEntry(1);
+            dict.SetValue(entry);
+            Assert.AreEqual(dict[1], entry);
+        }
+
+        [TestMethod]
         public void TestSaveAndLoad()
         {
-            var path = "DataContractValueDictionary.xml";
-            var dict = new DataContractValueDictionary<int, TestEntry>
+            var path = "ValueHashMap.xml";
+            var dict = new ValueHashMap<int, TestEntry>
             {
                 { 1, new TestEntry(1) },
                 { 3, new TestEntry(3) },
             };
 
             XmlSerialization.SaveXml(path, dict);
-            var copy = XmlSerialization.LoadXml<DataContractValueDictionary<int, TestEntry>>(path);
+            var copy = XmlSerialization.LoadXml<ValueHashMap<int, TestEntry>>(path);
             CollectionAssert.AreEquivalent(dict.Keys.ToList(), copy.Keys.ToList());
             CollectionAssert.AreEquivalent(dict.Values.Select(x => x.Id).ToList(), copy.Values.Select(x => x.Id).ToList());
         }
@@ -41,11 +59,11 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestSaveAndLoadEmpty()
         {
-            var path = "EmptyDataContractValueDictionary.xml";
-            var dict = new DataContractValueDictionary<int, TestEntry>();
+            var path = "EmptyValueHashMap.xml";
+            var dict = new ValueHashMap<int, TestEntry>();
 
             XmlSerialization.SaveXml(path, dict);
-            var copy = XmlSerialization.LoadXml<DataContractValueDictionary<int, TestEntry>>(path);
+            var copy = XmlSerialization.LoadXml<ValueHashMap<int, TestEntry>>(path);
             CollectionAssert.AreEquivalent(dict.Keys.ToList(), copy.Keys.ToList());
             CollectionAssert.AreEquivalent(dict.Values.Select(x => x.Id).ToList(), copy.Values.Select(x => x.Id).ToList());
         }
@@ -53,8 +71,8 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestInitializers()
         {
-            var dict = new DataContractValueDictionary<int, TestEntry>(10);
-            dict = new DataContractValueDictionary<int, TestEntry>(dict);
+            var dict = new ValueHashMap<int, TestEntry>(10);
+            dict = new ValueHashMap<int, TestEntry>(dict);
             Assert.AreEqual(0, dict.Count);
         }
 
@@ -62,7 +80,7 @@ namespace MPewsey.Common.Collections.Tests
         public void TestDictionaryCast()
         {
             var dict = new Dictionary<int, TestEntry>();
-            var cast = (DataContractValueDictionary<int, TestEntry>)dict;
+            var cast = (ValueHashMap<int, TestEntry>)dict;
             Assert.AreEqual(dict, cast.Dictionary);
         }
     }
