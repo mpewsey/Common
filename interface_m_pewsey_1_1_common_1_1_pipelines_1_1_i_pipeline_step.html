@@ -108,17 +108,17 @@ $(document).ready(function(){initNavTree('interface_m_pewsey_1_1_common_1_1_pipe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a42c192f0666dc62ec5f3f1f20902bbbd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step.html#a42c192f0666dc62ec5f3f1f20902bbbd">ApplyStep</a> (<a class="el" href="class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline_results.html">PipelineResults</a> results, CancellationToken cancellationToken)</td></tr>
-<tr class="memdesc:a42c192f0666dc62ec5f3f1f20902bbbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the operations for this step. Artifacts should be written to the results outputs.  <a href="interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step.html#a42c192f0666dc62ec5f3f1f20902bbbd">More...</a><br /></td></tr>
-<tr class="separator:a42c192f0666dc62ec5f3f1f20902bbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e0e34edaeb9dd9d795d4fa6e831e33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step.html#ab0e0e34edaeb9dd9d795d4fa6e831e33">ApplyStep</a> (<a class="el" href="class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline_results.html">PipelineResults</a> results, Action&lt; string &gt; logger, CancellationToken cancellationToken)</td></tr>
+<tr class="memdesc:ab0e0e34edaeb9dd9d795d4fa6e831e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the operations for this step. Artifacts should be written to the results outputs.  <a href="interface_m_pewsey_1_1_common_1_1_pipelines_1_1_i_pipeline_step.html#ab0e0e34edaeb9dd9d795d4fa6e831e33">More...</a><br /></td></tr>
+<tr class="separator:ab0e0e34edaeb9dd9d795d4fa6e831e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >An interface for creating a step of a <a class="el" href="class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline.html" title="A class for chaining multiple IPipelineStep together.">Pipeline</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="_i_pipeline_step_8cs_source.html#l00008">8</a> of file <a class="el" href="_i_pipeline_step_8cs_source.html">IPipelineStep.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_i_pipeline_step_8cs_source.html#l00009">9</a> of file <a class="el" href="_i_pipeline_step_8cs_source.html">IPipelineStep.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a42c192f0666dc62ec5f3f1f20902bbbd" name="a42c192f0666dc62ec5f3f1f20902bbbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42c192f0666dc62ec5f3f1f20902bbbd">&#9670;&nbsp;</a></span>ApplyStep()</h2>
+<a id="ab0e0e34edaeb9dd9d795d4fa6e831e33" name="ab0e0e34edaeb9dd9d795d4fa6e831e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e0e34edaeb9dd9d795d4fa6e831e33">&#9670;&nbsp;</a></span>ApplyStep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,6 +128,12 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_m_pewsey_1_1_common_1_1_pipelines_1_1_pipeline_results.html">PipelineResults</a>&#160;</td>
           <td class="paramname"><em>results</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Action&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>logger</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -147,6 +153,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">results</td><td>The pipeline results.</td></tr>
+    <tr><td class="paramname">logger</td><td>A logging action. Ignored if null.</td></tr>
     <tr><td class="paramname">cancellationToken</td><td>The cancellation token.</td></tr>
   </table>
   </dd>
