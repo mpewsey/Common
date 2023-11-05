@@ -11,7 +11,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestSaveAndLoad()
         {
-            var path = "DataContractHashSet.xml";
+            var path = "Set.xml";
             var set = new Set<int> { 1, 2, 3 };
             XmlSerialization.SaveXml(path, set);
             var copy = XmlSerialization.LoadXml<Set<int>>(path);
@@ -21,7 +21,7 @@ namespace MPewsey.Common.Collections.Tests
         [TestMethod]
         public void TestSaveAndLoadEmpty()
         {
-            var path = "EmptyDataContractHashSet.xml";
+            var path = "EmptySet.xml";
             var set = new Set<int>();
             XmlSerialization.SaveXml(path, set);
             var copy = XmlSerialization.LoadXml<Set<int>>(path);

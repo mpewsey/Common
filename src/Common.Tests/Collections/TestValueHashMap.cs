@@ -23,6 +23,24 @@ namespace MPewsey.Common.Collections.Tests
         }
 
         [TestMethod]
+        public void TestAdd()
+        {
+            var dict = new ValueHashMap<int, TestEntry>();
+            var entry = new TestEntry(1);
+            dict.Add(entry);
+            Assert.AreEqual(dict[1], entry);
+        }
+
+        [TestMethod]
+        public void TestSetValue()
+        {
+            var dict = new ValueHashMap<int, TestEntry>();
+            var entry = new TestEntry(1);
+            dict.SetValue(entry);
+            Assert.AreEqual(dict[1], entry);
+        }
+
+        [TestMethod]
         public void TestSaveAndLoad()
         {
             var path = "ValueHashMap.xml";
