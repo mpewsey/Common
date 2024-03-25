@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MPewsey.Common.Collections
 {
@@ -8,6 +7,12 @@ namespace MPewsey.Common.Collections
     /// </summary>
     public class Array2DDistanceSearch<T>
     {
+        /// <summary>
+        /// The cell predicate delegate.
+        /// </summary>
+        /// <param name="cell">The input cell.</param>
+        public delegate bool PredicateDelegate(T cell);
+
         /// <summary>
         /// The base array.
         /// </summary>
@@ -21,13 +26,13 @@ namespace MPewsey.Common.Collections
         /// <summary>
         /// The empty cell predicate. The function should return true when an empty cell is encountered.
         /// </summary>
-        private Func<T, bool> Predicate { get; }
+        private PredicateDelegate Predicate { get; }
 
         /// <summary>
         /// Initializes a new search.
         /// </summary>
         /// <param name="predicate">The empty cell predicate. If null, an empty cell will be assumed to be the default value for the type.</param>
-        public Array2DDistanceSearch(Func<T, bool> predicate = null)
+        public Array2DDistanceSearch(PredicateDelegate predicate = null)
         {
             Predicate = predicate ?? DefaultPredicate;
         }

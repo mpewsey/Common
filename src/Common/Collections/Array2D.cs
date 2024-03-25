@@ -14,6 +14,19 @@ namespace MPewsey.Common.Collections
     public class Array2D<T>
     {
         /// <summary>
+        /// A delegate that returns true if the values are equal.
+        /// </summary>
+        /// <param name="x">The first value.</param>
+        /// <param name="y">The second value.</param>
+        public delegate bool EqualityComparerDelegate(T x, T y);
+
+        /// <summary>
+        /// A selector predicate delegate for a single element.
+        /// </summary>
+        /// <param name="element">The input element.</param>
+        public delegate bool PredicateDelegate(T element);
+
+        /// <summary>
         /// The number of rows in the array.
         /// </summary>
         [DataMember(Order = 1)]
@@ -208,7 +221,7 @@ namespace MPewsey.Common.Collections
         /// <param name="x">The first array.</param>
         /// <param name="y">The second array.</param>
         /// <param name="comparer">The equality comparer.</param>
-        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y, Func<T, T, bool> comparer)
+        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y, EqualityComparerDelegate comparer)
         {
             if (x == y)
                 return true;
@@ -233,7 +246,7 @@ namespace MPewsey.Common.Collections
         /// </summary>
         /// <param name="other">The other array.</param>
         /// <param name="comparer">The element equality comparer.</param>
-        public bool ValuesAreEqual(Array2D<T> other, Func<T, T, bool> comparer)
+        public bool ValuesAreEqual(Array2D<T> other, EqualityComparerDelegate comparer)
         {
             if (Array.Length != other.Array.Length || Rows != other.Rows || Columns != other.Columns)
                 return false;
@@ -291,7 +304,7 @@ namespace MPewsey.Common.Collections
         /// Returns a -1 vector if no index is found.
         /// </summary>
         /// <param name="predicate">The predicate, taking each element.</param>
-        public Vector2DInt FindIndex(Func<T, bool> predicate)
+        public Vector2DInt FindIndex(PredicateDelegate predicate)
         {
             for (int i = 0; i < Rows; i++)
             {
@@ -309,7 +322,7 @@ namespace MPewsey.Common.Collections
         /// Returns a list of indexes where the specified predicate is true.
         /// </summary>
         /// <param name="predicate">The predicate, taking each element.</param>
-        public List<Vector2DInt> FindIndexes(Func<T, bool> predicate)
+        public List<Vector2DInt> FindIndexes(PredicateDelegate predicate)
         {
             var result = new List<Vector2DInt>();
 
