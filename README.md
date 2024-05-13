@@ -6,4 +6,10 @@
 ![.NET Standard](https://img.shields.io/badge/.NET%20Standard-2.0-blue)
 [![NuGet](https://img.shields.io/nuget/v/MPewsey.Common?label=NuGet)](https://www.nuget.org/packages/MPewsey.Common/)
 
-A library of common classes.
+A library of common classes:
+
+* Collections - Data Contract serializable collections, as well as collections not included in the standard library.
+* Random - Data Contract serializable random seed that produces static results across .NET versions.
+* Mathematics - Extra math functions and vector structs.
+* Pipelines - Components for building a sequential execution pipeline.
+* Serialization - Helper methods for serializing Data Contract objects.
