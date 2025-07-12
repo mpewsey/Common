@@ -7,11 +7,10 @@ var searchData=
   ['indexrotated180_4',['IndexRotated180',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a4c805f8d88d4e1515024f2a1541d965e',1,'MPewsey.Common.Collections.Array2D.IndexRotated180(Vector2DInt index)'],['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a8369251003c294c08094a5714c9df26b',1,'MPewsey.Common.Collections.Array2D.IndexRotated180(int row, int column)']]],
   ['indexrotated270_5',['IndexRotated270',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a3b542dbfc342caa9c72c43c662c1d081',1,'MPewsey.Common.Collections.Array2D.IndexRotated270(Vector2DInt index)'],['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a3e9ace483e5a5c83e3d07a38542e0a3e',1,'MPewsey.Common.Collections.Array2D.IndexRotated270(int row, int column)']]],
   ['indexrotated90_6',['IndexRotated90',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a82b0727d23c222160ce3c28594aa3b7a',1,'MPewsey.Common.Collections.Array2D.IndexRotated90(Vector2DInt index)'],['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a695f93d78cb068601b2b2880e56a302a',1,'MPewsey.Common.Collections.Array2D.IndexRotated90(int row, int column)']]],
-  ['initialize_7',['Initialize',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d_distance_search.html#ac265ac5f31d8c558d302cf41d11320c5',1,'MPewsey::Common::Collections::Array2DDistanceSearch']]],
-  ['intersectwith_8',['IntersectWith',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a2e750f5021d9e5d0f2ea4484fe5e4c31',1,'MPewsey::Common::Collections::Set']]],
-  ['inverseindex_9',['InverseIndex',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a521c00c02f24247aade3b28fcbdb6705',1,'MPewsey::Common::Collections::Array2D']]],
-  ['ispropersubsetof_10',['IsProperSubsetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a3ed868ff74352eb99a70f586dcd76faf',1,'MPewsey::Common::Collections::Set']]],
-  ['ispropersupersetof_11',['IsProperSupersetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#ada8e8a53e8159ca87f2b5b9a305be1f1',1,'MPewsey::Common::Collections::Set']]],
-  ['issubsetof_12',['IsSubsetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a4110d9da499e9b8d30ac01cb9671b5c5',1,'MPewsey::Common::Collections::Set']]],
-  ['issupersetof_13',['IsSupersetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a2e84b172fdbd91212be36db9e22abf52',1,'MPewsey::Common::Collections::Set']]]
+  ['intersectwith_7',['IntersectWith',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a2e750f5021d9e5d0f2ea4484fe5e4c31',1,'MPewsey::Common::Collections::Set']]],
+  ['inverseindex_8',['InverseIndex',['../class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html#a521c00c02f24247aade3b28fcbdb6705',1,'MPewsey::Common::Collections::Array2D']]],
+  ['ispropersubsetof_9',['IsProperSubsetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a3ed868ff74352eb99a70f586dcd76faf',1,'MPewsey::Common::Collections::Set']]],
+  ['ispropersupersetof_10',['IsProperSupersetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#ada8e8a53e8159ca87f2b5b9a305be1f1',1,'MPewsey::Common::Collections::Set']]],
+  ['issubsetof_11',['IsSubsetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a4110d9da499e9b8d30ac01cb9671b5c5',1,'MPewsey::Common::Collections::Set']]],
+  ['issupersetof_12',['IsSupersetOf',['../class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a2e84b172fdbd91212be36db9e22abf52',1,'MPewsey::Common::Collections::Set']]]
 ];

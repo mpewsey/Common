@@ -1,7 +1,6 @@
 var hierarchy =
 [
     [ "Array2D< T >", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d.html", null ],
-    [ "Array2DDistanceSearch< T >", "class_m_pewsey_1_1_common_1_1_collections_1_1_array2_d_distance_search.html", null ],
     [ "BitArray2D", "class_m_pewsey_1_1_common_1_1_collections_1_1_bit_array2_d.html", null ],
     [ "Cryptography", "class_m_pewsey_1_1_common_1_1_serialization_1_1_cryptography.html", null ],
     [ "ICollection", null, [

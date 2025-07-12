@@ -48,8 +48,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_array2_d_8cs_source.html",
-"class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a3ed868ff74352eb99a70f586dcd76faf",
-"class_m_pewsey_1_1_common_1_1_serialization_1_1_xml_serialization.html#a89de26221819afce6376556b08681110"
+"class_m_pewsey_1_1_common_1_1_collections_1_1_set.html#a9b1021633512606a69b45709d5f12bc6",
+"functions_b.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

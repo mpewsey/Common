@@ -1,7 +1,6 @@
 var dir_cb06b0e0012ae748cbc143450d44f0b5 =
 [
     [ "Array2D.cs", "_array2_d_8cs_source.html", null ],
-    [ "Array2DDistanceSearch.cs", "_array2_d_distance_search_8cs_source.html", null ],
     [ "BitArray2D.cs", "_bit_array2_d_8cs_source.html", null ],
     [ "HashMap.cs", "_hash_map_8cs_source.html", null ],
     [ "HashMapBase.cs", "_hash_map_base_8cs_source.html", null ],
