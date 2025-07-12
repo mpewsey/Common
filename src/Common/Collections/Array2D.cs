@@ -14,19 +14,6 @@ namespace MPewsey.Common.Collections
     public class Array2D<T>
     {
         /// <summary>
-        /// A delegate that returns true if the values are equal.
-        /// </summary>
-        /// <param name="x">The first value.</param>
-        /// <param name="y">The second value.</param>
-        public delegate bool EqualityComparerDelegate(T x, T y);
-
-        /// <summary>
-        /// A selector predicate delegate for a single element.
-        /// </summary>
-        /// <param name="element">The input element.</param>
-        public delegate bool PredicateDelegate(T element);
-
-        /// <summary>
         /// The number of rows in the array.
         /// </summary>
         [DataMember(Order = 1)]
@@ -221,7 +208,7 @@ namespace MPewsey.Common.Collections
         /// <param name="x">The first array.</param>
         /// <param name="y">The second array.</param>
         /// <param name="comparer">The equality comparer.</param>
-        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y, EqualityComparerDelegate comparer)
+        public static bool ValuesAreEqual(Array2D<T> x, Array2D<T> y, Func<T, T, bool> comparer)
         {
             if (x == y)
                 return true;
@@ -246,7 +233,7 @@ namespace MPewsey.Common.Collections
         /// </summary>
         /// <param name="other">The other array.</param>
         /// <param name="comparer">The element equality comparer.</param>
-        public bool ValuesAreEqual(Array2D<T> other, EqualityComparerDelegate comparer)
+        public bool ValuesAreEqual(Array2D<T> other, Func<T, T, bool> comparer)
         {
             if (Array.Length != other.Array.Length || Rows != other.Rows || Columns != other.Columns)
                 return false;
@@ -304,7 +291,7 @@ namespace MPewsey.Common.Collections
         /// Returns a -1 vector if no index is found.
         /// </summary>
         /// <param name="predicate">The predicate, taking each element.</param>
-        public Vector2DInt FindIndex(PredicateDelegate predicate)
+        public Vector2DInt FindIndex(Func<T, bool> predicate)
         {
             for (int i = 0; i < Rows; i++)
             {
@@ -322,7 +309,7 @@ namespace MPewsey.Common.Collections
         /// Returns a list of indexes where the specified predicate is true.
         /// </summary>
         /// <param name="predicate">The predicate, taking each element.</param>
-        public List<Vector2DInt> FindIndexes(PredicateDelegate predicate)
+        public List<Vector2DInt> FindIndexes(Func<T, bool> predicate)
         {
             var result = new List<Vector2DInt>();
 
@@ -566,6 +553,50 @@ namespace MPewsey.Common.Collections
             }
 
             return mirror;
+        }
+
+        /// <summary>
+        /// Returns an array of distances from the specified index to each cell.
+        /// Values of -1 indicate that the index does not exist.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        /// <param name="predicate">A predicate that returns true when the cell at an index does not exist. If null, the default value for the array type will be considered an empty cell.</param>
+        /// <returns></returns>
+        public Array2D<int> FindDistances(int row, int column, Func<T, bool> predicate = null)
+        {
+            if (predicate == null)
+                predicate = x => EqualityComparer<T>.Default.Equals(x, default);
+
+            var distances = new Array2D<int>(Rows, Columns);
+            distances.Fill(-1);
+            SearchDistances(row, column, 0, distances, predicate);
+            return distances;
+        }
+
+        /// <summary>
+        /// Performs a recursive crawl of the array cells to determine the distance to an index.
+        /// </summary>
+        /// <param name="row">The row.</param>
+        /// <param name="column">The column.</param>
+        /// <param name="distance">The current distance crawled.</param>
+        /// <param name="distances">The results array of distances.</param>
+        /// <param name="predicate">A predicate that returns true when the cell at an index does not exist.</param>
+        private void SearchDistances(int row, int column, int distance, Array2D<int> distances, Func<T, bool> predicate)
+        {
+            if (IndexExists(row, column) && !predicate.Invoke(this[row, column]))
+            {
+                var currentDistance = distances[row, column];
+
+                if (currentDistance > distance || currentDistance < 0)
+                {
+                    distances[row, column] = distance++;
+                    SearchDistances(row, column - 1, distance, distances, predicate);
+                    SearchDistances(row, column + 1, distance, distances, predicate);
+                    SearchDistances(row - 1, column, distance, distances, predicate);
+                    SearchDistances(row + 1, column, distance, distances, predicate);
+                }
+            }
         }
     }
 }
